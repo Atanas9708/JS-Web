@@ -1,0 +1,19 @@
+{
+  "name": "introduction-to-node.js",
+  "version": "0.0.1",
+  "description": "JavaScript Web course September 2017",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Atanas9708/JS-Web.git"
+  },
+  "author": "AS",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Atanas9708/JS-Web/issues"
+  },
+  "homepage": "https://github.com/Atanas9708/JS-Web#readme"
+}

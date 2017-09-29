@@ -60,22 +60,23 @@ let clear = () => {
 }
 
 let save = () => {
-    return new Promise ((resolve, reject) => {
-        let storageAsStr = JSON.stringify(storage);
+   return new Promise ((resolve, reject) => {
+       let storageAsStr = JSON.stringify(storage);
 
-        fs.writeFile('./storage.json', storageAsStr, err => {
-            if (err){
-                reject(err);
-                return;
-            }
+       fs.writeFile('./storage.json', storageAsStr, err => {
+           if (err){
+               reject(err);
+               return;
+           }
 
-            resolve();
-        })
-    })
+           resolve();
+       })
+   })
 }
 
 let load = () => {
     return new Promise ((resolve, reject) => {
+
         fs.readFile('./storage.json', 'utf8', (err, data) => {
             if (err){
                 reject(err);

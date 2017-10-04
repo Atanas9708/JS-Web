@@ -1,0 +1,12 @@
+{
+  "name": "nodejs-web-server",
+  "version": "0.0.1",
+  "description": "Nojde web server exercise",
+  "main": "index.js",
+  "author": "AS",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-htmlmin": "^3.0.0"
+  }
+}

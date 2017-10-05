@@ -11,7 +11,7 @@ let load = () => {
         return
       }
       console.log('loading')
-      db = JSON.parse(data)
+      db = JSON.parse(data);
       res()
     })
   })
@@ -34,7 +34,6 @@ let add = (movie) => {
 }
 
 let dbCopy = () => {
-
   return db.slice(0)
 }
 

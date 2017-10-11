@@ -81,14 +81,12 @@ module.exports = (req, res) => {
         let tagId = tag._id.toString();
         Image
           .find({ tags: tagId })
+          .sort({ date: -1 })
           .limit(limit)
           .then((images) => {
             fixDate(images);
             images = images.filter(d => d.date > maxDate && d.date < minDate);
             displayHtml(res, images);
-          }).catch((err) => {
-            console.log(err);
-            return;
           });
       }).catch((err) => {
         console.log(err);
@@ -100,14 +98,12 @@ module.exports = (req, res) => {
         let tagId = tag._id.toString();
         Image
           .find({ tags: tagId })
+          .sort({ date: -1 })
           .limit(limit)
           .then((images) => {
             fixDate(images);
             images = images.filter(d => d.date < minDate);
             displayHtml(res, images);
-          }).catch((err) => {
-            console.log(err);
-            return;
           });
       }).catch((err) => {
         console.log(err);
@@ -119,15 +115,13 @@ module.exports = (req, res) => {
         let tagId = tag._id.toString();
         Image
           .find({ tags: tagId })
+          .sort({ date: -1 })
           .limit(limit)
           .then((images) => {
             fixDate(images);
             images = images.filter(d => d.date > maxDate);
             displayHtml(res, images);
-          }).catch((err) => {
-            console.log(err);
-            return;
-          });
+          })
       }).catch((err) => {
         console.log(err);
         return;
@@ -142,7 +136,6 @@ module.exports = (req, res) => {
         .then((images) => {
           displayHtml(res, images);
         });
-
       }).catch((err) => {
         console.log(err);
         return;

@@ -1,18 +1,18 @@
-const fs = require('fs')
+const fs = require('fs');
 
-let db = []
-let dbPath = './db/db.json'
+let db = [];
+let dbPath = './db/db.json';
 
 let load = () => {
   return new Promise((res, rej) => {
     fs.readFile(dbPath, (err, data) => {
       if (err) {
         console.log(err)
-        return
+        return;
       }
-      console.log('loading')
+      console.log('loading');
       db = JSON.parse(data);
-      res()
+      res();
     })
   })
 }
@@ -21,21 +21,21 @@ let save = () => {
   return new Promise((res, rej) => {
     fs.writeFile(dbPath, JSON.stringify(db), (err) => {
       if (err) {
-        console.log(err)
-        return
+        console.log(err);
+        return;
       }
-      res()
-    })
-  })
+      res();
+    });
+  });
 }
 
 let add = (movie) => {
-  db.push(movie)
-}
+  db.push(movie);
+};
 
 let dbCopy = () => {
-  return db.slice(0)
-}
+  return db.slice(0);
+};
 
 module.exports = {
   load: load,

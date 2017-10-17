@@ -1,0 +1,25 @@
+{{#if cars}}
+<h1>Cars you have rented</h1>
+{{else}}
+<h1>You have not rented any cars yet</h1>
+{{/if}}
+<table align="center" style="width:70%">
+    <tr>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Total price</th>
+        <th>Rent date</th>
+        <th>Days</th>
+    </tr>
+    {{#each cars}}
+    <tr>
+        <td>{{this.brand}}</td>
+        <td>{{this.model}}</td>
+        <td>{{this.year}}</td>
+        <td>{{this.totalPrice}}$</td>
+        <td>{{this.rentDate}}</td>
+        <td>{{this.rentDays}}</td>
+    </tr>
+    {{/each}}
+</table>

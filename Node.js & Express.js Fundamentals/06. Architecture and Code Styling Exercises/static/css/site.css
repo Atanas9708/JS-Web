@@ -1,0 +1,169 @@
+* {
+    padding: 0;
+    margin: 0
+}
+
+header {
+    margin-bottom: 2em;
+}
+
+.container {
+    padding-left: 25%
+}
+
+
+/* .menu {
+    padding: 10px 40px;
+}
+
+.menu ul {
+    padding-left: 0;
+}
+  
+.menu li {
+    display: inline-block;
+    padding: 10px;
+}
+  
+.menu li:first-of-type {
+    padding-left: 0px;
+}
+  
+.menu li a {
+    text-decoration-line: none
+} */
+
+.error {
+    color: red;
+}
+.menu {
+    padding: 10px 40px;
+  }
+  
+.menu ul {
+    padding-left: 0;
+}
+  
+.menu li {
+    display: inline-block;
+    padding: 10px;
+}
+  
+.menu li:first-of-type {
+    padding-left: 0px;
+}
+  
+.menu li a {
+    text-decoration-line: none
+}
+
+.btn {
+    padding: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    color: inherit;
+    display: inline-block;
+    text-decoration-line: none;
+    margin: 5px;
+}
+  
+.btn:hover {
+    cursor: pointer;
+}
+
+.btn-success {
+    color: #ffffff;
+    background-color: #73a839;
+    border-color: #73a839;
+}
+
+.form-btn {
+    display: block;
+    margin-left: calc(30% + 15px);
+}
+
+table {
+    border-spacing: 5px;
+    align-self: center;
+}
+
+th {
+    text-align: left;
+}
+
+th, td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color: #f5f5f5}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.car {
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #555;
+    font-size: 2em;
+    text-align: left;
+    font-family: sans-serif;
+}
+
+p {
+    margin: 0 auto;
+    width: 280px;
+    font-family: sans-serif;
+}
+
+.form {
+    width: 50%;
+}
+  
+
+.form center-form {
+    font-size: 1.2em;
+    width: 30%;
+    display: inline-block;
+    text-align: end;
+    padding-right: 10px;
+    vertical-align: top;
+}
+
+.form-group label {
+    font-size: 1.2em;
+    width: 30%;
+    display: inline-block;
+    text-align: end;
+    padding-right: 10px;
+    vertical-align: top;
+}
+
+.input-field {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid lightgrey;
+    font-size: inherit;
+}
+  
+textarea.input-field {
+    padding: 10px;
+    font-family: inherit;
+}
+  
+.input-field:focus {
+    outline: none;
+}
+  
+.form-group {
+    padding: 10px;
+}
+

@@ -1,0 +1,23 @@
+<form method="post" class="form center-form" enctype=multipart/form-data >
+  <h2>Edit Car</h2>
+  <img class="carPoster" src="{{car.image}}"/>
+  <div class="form-group">
+    <label for="name">Brand</label>
+    <input id="name" name="brand" type="text" value="{{car.brand}}" class="input-field" required/>
+  </div>
+  <div class="form-group">
+    <label for="model">Model</label>
+    <input id="model" name="model" type="text" value="{{car.model}}" class="input-field" required/>
+  </div>
+  <div class="form-group">
+    <label for="pricePerDay">Price per day</label>
+    <input id="pricePerDay" name="pricePerDay" type="number" value="{{car.pricePerDay}}" step="0.01" min="0" class="input-field" required/>
+  </div>
+  <div class="form-group">
+    <label for="year">Year</label>
+    <input id="year" name="year" type="number" value="{{car.year}}" step="0.01" min="0" class="input-field" required/>
+  </div>
+  <div class="form-group">
+    <input type="submit" value="Edit" class="form-btn btn"/>
+  </div>
+</form>

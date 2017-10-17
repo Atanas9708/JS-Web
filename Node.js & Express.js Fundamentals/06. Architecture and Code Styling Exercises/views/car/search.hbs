@@ -1,0 +1,21 @@
+{{#if cars}}
+<h1>Results for searching: {{brand}}</h1>
+{{else}}
+<h1>No results for {{brand}}</h1>
+{{/if}}
+{{#each cars}}
+<div class="car">
+    <img class="carPoster" src="{{this.image}}" />
+</div>
+<h1>Brand: {{this.brand}}</h1>
+<h1>Mode: {{this.model}}</h1>
+<h1>Price per day: {{this.pricePerDay}}</h1>
+{{#if this.logged}}
+    {{#if this.isNotRented}}
+    <a href="/rent/{{this.id}}" class="btn btn-small btn-success">Rent</a>
+    {{/if}}
+{{/if}} 
+{{#if this.isRented}}
+<h3>This car is currently rented.</h3>
+{{/if}}
+{{/each}}

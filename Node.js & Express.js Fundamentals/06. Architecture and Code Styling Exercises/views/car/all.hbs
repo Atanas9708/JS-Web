@@ -1,0 +1,30 @@
+<form action="/searchBrand" enctype=multipart/form-data>
+    {{#if cars}}
+    <h1>Cars available for rent</h1>
+    {{else}}
+    <h1>There are no cars to rent</h1>
+    {{/if}}
+    <br>
+    <input type="text" id="brand" name="brandName" placeholder="Brand of the car">
+    <input type="submit" value="Search" />
+    <br> {{#each cars}}
+    <div class="car">
+
+        <img class="carPoster" src="{{this.image}}" />
+
+        <h1>Brand: {{this.brand}}</h1>
+        <h1>Model: {{this.model}}</h1>
+        <h1>Price per day: {{this.pricePerDay}}$</h1>
+        {{#if this.logged}}
+
+        <a href="/rent/{{this.id}}" class="btn btn-small btn-success">Rent</a>
+
+        {{/if}} {{#if this.logged.isAdmin}}
+
+        <a href="/edit/{{this.id}}" class="btn btn-small btn-success">Edit</a>
+        {{/if}} {{/each}}
+    </div>
+</form>
+
+<a href="allCars?page={{pages.prevPage}}">Previous</a>
+<a href="allCars?page={{pages.nextPage}}">Next</a>

@@ -43,7 +43,8 @@ module.exports = {
     },
     allCarsGet: (req, res) => {
 
-        let page = Number(req.query.page);
+        let pageSize = 5;
+        let page = Number(req.query.page) || 1;
 
         let prevPage = page - 1;
         let nextPage = page + 1;
@@ -51,23 +52,21 @@ module.exports = {
         Car
         .find({ isRented: false })
         .sort({ creationDate: -1 })
-        .skip(page * 10)
-        .limit(10)
+        .skip((page - 1) * pageSize)
+        .limit(pageSize)
         .then((cars) => {
 
-            if (prevPage < 0) {
-                prevPage = 0;
-            }
-
-            let pages = {
-                prevPage,
-                nextPage
-            };
             
             cars.forEach(c => c.logged = req.user);
             cars.forEach(c => c.brand = capitalize(c.brand));
 
-            res.render('car/all', { cars, pages });
+            res.render('car/all', { 
+                cars: cars,
+                hasPrevPage: page > 1,
+                hasNextPage: cars.length > 0,
+                prevPage: page - 1,
+                nextPage: page + 1
+             });
 
         }).catch((err) => {
             console.log(err);

@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const fileUploader = require('express-fileupload');
 const session = require('express-session');
+const pagination = require('express-paginate');
 const passport = require('passport');
 
 module.exports = app => {

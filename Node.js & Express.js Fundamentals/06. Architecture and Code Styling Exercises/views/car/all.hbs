@@ -26,5 +26,12 @@
     </div>
 </form>
 
-<a href="allCars?page={{pages.prevPage}}">Previous</a>
-<a href="allCars?page={{pages.nextPage}}">Next</a>
+<div class="font-3x">
+  {{#if hasPrevPage}}
+    <a href="allCars?page={{prevPage}}">&lt;&lt;</a>
+    &nbsp; &nbsp; &nbsp;
+  {{/if}}
+  {{#if hasNextPage}}
+    <a href="allCars?page={{nextPage}}">&gt;&gt;</a> 
+  {{/if}}
+</div>

@@ -78,6 +78,7 @@ module.exports = {
         let id = req.params.id;
 
         Car.findById(id).then((car) => {
+            car.brand = car.brand[0].toUpperCase() + car.brand.slice(1);
             res.render('car/edit', {car: car});
 
         }).catch((err) => {

@@ -2,6 +2,10 @@ const encryption = require('../util/encryption');
 const User = require('mongoose').model('User');
 const Car = require('mongoose').model('Car');
 
+function capitalize (str) {
+    return str[0].toUpperCase() + str.slice(1);
+}
+
 module.exports = {
     registerGet: (req, res) => {
         res.render('users/register');
@@ -79,6 +83,7 @@ module.exports = {
             
             Car.find({_id: {$in: rentedCars }}).then((resultCars) => {
                 resultCars.forEach(c => c.totalPrice = c.pricePerDay * c.rentDays);
+                resultCars.forEach(c => c.brand = capitalize(c.brand));
                 res.render('users/profile', {cars: resultCars});
 
             }).catch((err) => {

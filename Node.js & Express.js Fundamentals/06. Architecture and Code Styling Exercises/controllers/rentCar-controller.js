@@ -10,7 +10,7 @@ module.exports = {
                 res.send('Car is already rented.');
                 return;
             }
-
+            car.brand = car.brand[0].toUpperCase() + car.brand.slice(1);
             res.render('car/rent', { car: car });
 
         }).catch((err) => {

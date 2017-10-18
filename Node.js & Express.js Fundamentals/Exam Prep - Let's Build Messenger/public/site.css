@@ -140,6 +140,7 @@ Layout
   vertical-align: top;
 }
 
+
 .input-field {
   width: 50%;
   box-sizing: border-box;
@@ -245,4 +246,13 @@ textarea.input-field {
 }
 .liked {
   color: gold;
+}
+
+.form-btn {
+  display: block;
+  margin-left: calc(30% + 15px);
+}
+
+h2 { 
+  margin-left: calc(30% + 15px);
 }

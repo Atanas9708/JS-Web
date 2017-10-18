@@ -10,7 +10,6 @@ module.exports = {
         .then(user => {
           let data = {
             users: user.otherUsers,
-            user: req.user
           }
           if (error) {
             data.error = error;
@@ -22,6 +21,8 @@ module.exports = {
           console.log(err);
           return;
       });
+
+      return;
     }
 
     res.render('home/index');

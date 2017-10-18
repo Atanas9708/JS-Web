@@ -43,7 +43,7 @@ module.exports = {
     },
     allCarsGet: (req, res) => {
 
-        let pageSize = 5;
+        let pageSize = 6;
         let page = Number(req.query.page) || 1;
 
         let prevPage = page - 1;

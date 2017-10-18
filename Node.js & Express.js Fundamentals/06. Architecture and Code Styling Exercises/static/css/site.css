@@ -103,12 +103,6 @@ th {
     color: white;
 }
 
-.car {
-    box-sizing: border-box;
-    padding: 20px;
-    margin: 0 auto;
-}
-
 h1 {
     color: #555;
     font-size: 2em;
@@ -169,4 +163,23 @@ textarea.input-field {
 
 .font-3x {
     font-size: 3em;
+}
+
+.car {
+    box-sizing: border-box;
+    padding: 20px;
+    width: 40%;
+    display: inline-block;
+}
+
+.cars {
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.carPoster {
+    width: 100%;
+    max-width: 350px;
+    max-height: 350px;
 }

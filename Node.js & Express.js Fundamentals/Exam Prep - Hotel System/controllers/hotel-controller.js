@@ -57,10 +57,11 @@ module.exports = {
             let comments = [];
             for (let comment of hotel.comments) {
                 let commentObj = {
+                    title: comment.title,
                     username: comment.creator.username,
                     userComment: comment.content,
                     datePosted: comment.creationDate,
-                    _id: comment.id
+                    _id: hotelId
                 };
 
                 comments.push(commentObj);

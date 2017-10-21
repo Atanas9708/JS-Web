@@ -29,7 +29,8 @@ module.exports = app => {
     app.get('/details', controllers.hotel.getDetails);
 
     app.post('/comment/:id', restrictedPages.isAuthed, restrictedPages.isNotBlocked ,controllers.comment.createComment);
-    app.get('/comment/edit/:id', restrictedPages.hasRole('Admin'), controllers.comment.editCommentGet);
+    app.get('/comment/edit', restrictedPages.hasRole('Admin'), controllers.comment.editCommentGet);
+    app.post('/edit/comment', restrictedPages.hasRole('Admin'), controllers.comment.editCommentPost);
 
     app.get('/users', restrictedPages.hasRole('Admin'), controllers.user.listUsers);
     app.get('/make/admin/:id', restrictedPages.hasRole('Admin'), controllers.user.promote);

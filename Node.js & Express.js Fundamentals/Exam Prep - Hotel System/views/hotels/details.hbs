@@ -34,10 +34,10 @@
     <p>comment: {{this.userComment}}</p>
     <p>Posted on: {{this.datePosted}}</p>
     {{#if this.user.isAdmin}}
-    <a href="/comment/edit/{{this._id}}">
+    <a href="/comment/edit?id={{this._id}}&content={{this.userComment}}">
         <button>Edit</button>
     </a>
-    <a href="/comment/delete/{{this._id}}">
+    <a href="/comment/delete?id={{this._id}}&content={{this.userComment}}">
         <button>Delete</button>
     </a>
     {{/if}}

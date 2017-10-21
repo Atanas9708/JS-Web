@@ -1,0 +1,18 @@
+
+{{#each hotels}}
+<a href="/details?id={{this._id}}">
+    <fieldset>
+        <legend>{{this.title}}</legend>
+        <p>{{this.location}}</p>
+        <img class="hotelImg" src="{{this.image}}" alt="hotel image">
+        <p>{{this.description}}</p>
+        <a href="like/{{this._id}}">
+            <img class="likeBtn" src="/img/like-button-png-2.png" alt="like">
+        </a>
+        <span>{{this.likeCounter.length}}</span>
+        <p>Views: {{this.viewCounter}}</p>
+    </fieldset>
+</a>
+{{else}}
+<h1>There are no hotels in this category.</h1>
+{{/each}}

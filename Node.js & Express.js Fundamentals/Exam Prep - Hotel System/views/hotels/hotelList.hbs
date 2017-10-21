@@ -1,0 +1,33 @@
+<h1>Home Page</h1>
+
+{{#each hotels}}
+<a href="/details?id={{this._id}}">
+    <fieldset>
+        <legend>{{this.title}}</legend>
+        <p>{{this.location}}</p>
+        <img class="hotelImg" src="{{this.image}}" alt="hotel image">
+        <p>{{this.description}}</p>
+        <a href="like/{{this._id}}">
+            <img class="likeBtn" src="/img/like-button-png-2.png" alt="like">
+        </a>
+        <span>{{this.likeCounter.length}}</span>
+        <p>Views: {{this.viewCounter}}</p>
+        {{#if this.user.isAdmin}}
+        <a href="/hotel/edit/{{this._id}}">
+            <button>Edit</button>
+        </a>
+        <a href="/hotel/delete/{{this._id}}">
+            <button type="submit">Delete</button>
+        </a>
+        {{/if}}
+    </fieldset>
+</a>
+{{/each}}
+
+
+<a href="/list?page={{pages.prevPage}}">
+    <button>Prev</button>
+</a>
+<a href="/list?page={{pages.nextPage}}">
+    <button>Next</button>
+</a>

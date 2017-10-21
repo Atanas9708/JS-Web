@@ -1,0 +1,22 @@
+<h1>Hotels</h1>
+{{#each hotels}}
+<fieldset>
+    <p>Title: {{this.title}}</p>
+    <p>Location: {{this.location}}</p>
+    <a href="/details?id={{this._id}}">
+        <img class="hotelImg" src="{{this.image}}" alt="hotel image">
+    </a>
+    <p>Description: {{this.description}}</p>
+    <div>
+    </div>
+</fieldset>
+{{/each}}
+
+<h1>Comments</h1>
+{{#each comments}}
+<fieldset>
+    <p>Title: {{this.title}}</p>
+    <p>comment: {{this.userComment}}</p>
+    <p>Posted on: {{this.datePosted}}</p>
+</fieldset>
+{{/each}}

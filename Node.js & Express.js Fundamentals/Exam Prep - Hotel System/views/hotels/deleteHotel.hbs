@@ -1,0 +1,21 @@
+<div class="login-page">
+  <div class="form">
+    <form method="POST" class="create-form">
+      <input type="text" name='title' value="{{hotel.title}}" disabled/>
+      <input type="text" name='location' value="{{hotel.location}}" disabled/>
+      <input type="text" name='image' value="{{hotel.image}}" disabled/>
+
+      <select class='picker' name="type">
+        {{#each categories}}
+        <option value="{{this.categoryName}}" disabled>{{this.categoryName}}</option>
+        {{/each}}
+      </select>
+      <br>
+      <br>
+      <textarea name="textArea" id="" cols="35" rows="10" disabled>{{hotel.description}}</textarea>
+      <br>
+
+      <button type="submit">Delete</button>
+    </form>
+  </div>
+</div>

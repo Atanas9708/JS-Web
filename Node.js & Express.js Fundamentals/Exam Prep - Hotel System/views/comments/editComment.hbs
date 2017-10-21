@@ -1,0 +1,11 @@
+<div class="login-page">
+    <h2>Create comment</h2>
+    <div class="form">
+        <form action="/comment/{{selectedHotel._id}}" method="POST" class="create-form">
+            <input type="text" name='title' value="{{comment.title}}" />
+            <textarea name="comment" id="" cols="35" rows="10">{{comment.content}}</textarea>
+            <br>
+            <button type="submit">create</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<h1>Users</h1>
+{{#each users}}
+
+<fieldset>
+    <h2>{{this.username}}</h2>
+    <a href="/make/admin/{{this._id}}">
+        <button>Promote</button>
+    </a>
+    {{#if this.isBlocked}}
+    <a href="/user/unblock/{{this._id}}">
+        <button>Unblock</button>
+    </a>
+    {{else}}
+    <a href="/user/block/{{this._id}}">
+        <button>Block</button>
+    </a>
+    {{/if}}
+    <br>
+</fieldset>
+
+{{/each}}

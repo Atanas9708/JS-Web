@@ -1,0 +1,59 @@
+<h1>Details</h1>
+
+<fieldset>
+    <p>Title: {{selectedHotel.title}}</p>
+    <p>Location: {{selectedHotel.location}}</p>
+    <img class="hotelImg" src="{{selectedHotel.image}}" alt="hotel image">
+    <p>Description: {{selectedHotel.description}}</p>
+    <div>
+        {{#if user}}
+        <a href="like/{{selectedHotel._id}}">
+            <img class="likeBtn" src="/img/like-button-png-2.png" alt="like">
+        </a>
+        {{/if}}
+        <span>{{selectedHotel.likeCounter.length}}</span>
+        <p>Views: {{selectedHotel.viewCounter}}</p>
+        {{#if selectedHotel.user.isAdmin}}
+        <a href="/hotel/edit/{{selectedHotel._id}}">
+            <button>Edit</button>
+        </a>
+        <a href="/hotel/delete/{{selectedHotel._id}}">
+            <button type="submit">Delete</button>
+        </a>
+        {{/if}}
+    </div>
+
+</fieldset>
+
+<h2>Comments</h2>
+{{#each comments}}
+<fieldset>
+    <a href="/profile/{{this.username}}">
+        <p>Author: {{this.username}}</p>
+    </a>
+    <p>comment: {{this.userComment}}</p>
+    <p>Posted on: {{this.datePosted}}</p>
+    {{#if this.user.isAdmin}}
+    <a href="/comment/edit/{{this._id}}">
+        <button>Edit</button>
+    </a>
+    <a href="/comment/delete/{{this._id}}">
+        <button>Delete</button>
+    </a>
+    {{/if}}
+</fieldset>
+{{/each}}
+
+{{#if user}}
+<div class="login-page">
+    <h2>Create comment</h2>
+    <div class="form">
+        <form action="/comment/{{selectedHotel._id}}" method="POST" class="create-form">
+            <input type="text" name='title' placeholder="Title" />
+            <textarea name="comment" id="" cols="35" rows="10" placeholder="comment"></textarea>
+            <br>
+            <button type="submit">create</button>
+        </form>
+    </div>
+</div>
+{{/if}}

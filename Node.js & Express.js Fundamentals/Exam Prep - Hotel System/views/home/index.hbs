@@ -1,0 +1,20 @@
+<h1>List</h1>
+
+{{#each hotels}}
+<a href="/details?id={{this._id}}">
+    <fieldset>
+        <p>Title: {{this.title}}</p>
+        <p>Location: {{this.location}}</p>
+        <img class="hotelImg" src="{{this.image}}" alt="hotel image"> 
+        <p>Description: {{this.description}}</p>
+        {{#if this.user.isAdmin}}
+        <a href="/hotel/edit/{{this._id}}">
+            <button>Edit</button>
+        </a>
+        <a href="/hotel/delete/{{this._id}}">
+            <button type="submit">Delete</button>
+        </a>
+        {{/if}}
+    </fieldset>
+</a>
+{{/each}}

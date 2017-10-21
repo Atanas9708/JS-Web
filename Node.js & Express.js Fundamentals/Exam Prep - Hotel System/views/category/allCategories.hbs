@@ -1,0 +1,11 @@
+{{#each categories}}
+<form action="/delCategory/{{this._id}}" method="POST">
+    <a href="/category/{{this.categoryName}}">
+        <h3>{{this.categoryName}}</h3>
+        {{#if this.user.isAdmin}}
+        <input type="submit" value="Delete" class="form-btn btn" /> 
+        {{/if}}
+        <br>
+    </a>
+</form>
+{{/each}}

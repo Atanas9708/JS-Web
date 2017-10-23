@@ -1,6 +1,7 @@
 const Comment = require('../models/Comment');
 const Hotel = require('../models/Hotel');
 const User = require('../models/User');
+const mongoose = require('mongoose');
 
 module.exports = {
     createComment: (req, res) => {

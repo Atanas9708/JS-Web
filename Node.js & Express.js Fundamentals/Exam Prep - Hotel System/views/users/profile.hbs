@@ -1,4 +1,4 @@
-<h1>Hotels</h1>
+<h1>Hotels:</h1>
 {{#each hotels}}
 <fieldset>
     <p>Title: {{this.title}}</p>
@@ -10,13 +10,17 @@
     <div>
     </div>
 </fieldset>
+{{else}}
+<h3>No hotels</h3>
 {{/each}}
 
-<h1>Comments</h1>
+<h1>Comments:</h1>
 {{#each comments}}
 <fieldset>
     <p>Title: {{this.title}}</p>
     <p>comment: {{this.userComment}}</p>
     <p>Posted on: {{this.datePosted}}</p>
 </fieldset>
+{{else}}
+<h3>No comments</h3>
 {{/each}}

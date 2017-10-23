@@ -20,7 +20,7 @@
                 <li><a href="/users">Users</a></li>
                 {{/if}}
                 {{#if currentUser}}
-                <li>{{currentUser.username}}</li>
+                <li>Welcome, {{currentUser.username}}</li>
                 <li>
                     <form id="logout-form" action="/logout" method="post"></form>
                     <a href="javascript:document.getElementById('logout-form').submit()">Logout</a>

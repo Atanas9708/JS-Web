@@ -1,9 +1,9 @@
 <div class="login-page">
     <h2>Edit comment</h2>
     <div class="form">
-        <form action="/edit/comment?content={{comment.content}}&id={{comment._id}}" method="POST" class="create-form">
-            <input type="text" name='title' value="{{comment.title}}" />
-            <textarea name="comment" id="" cols="35" rows="10">{{comment.content}}</textarea>
+        <form action="/edit/comment?content={{commentToEdit.content}}&id={{commentToEdit._id}}" method="POST" class="create-form">
+            <input type="text" name='title' value="{{commentToEdit.title}}" />
+            <textarea name="content" id="" cols="35" rows="10">{{commentToEdit.content}}</textarea>
             <br>
             <button type="submit">Edit</button>
         </form>

@@ -45,7 +45,7 @@ module.exports = {
         let selectedCategory = req.params.categoryName;
 
         Hotel.find({category: selectedCategory}).then((hotels) => {
-            res.render('category/hotelsByCategory', {hotels: hotels});
+            res.render('category/hotelsByCategory', {hotels: hotels, category: selectedCategory});
 
         }).catch((err) => {
             console.log(err);

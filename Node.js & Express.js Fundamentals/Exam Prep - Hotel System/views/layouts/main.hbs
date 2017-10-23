@@ -13,18 +13,20 @@
             <ul class="menu">
                 <li><a href="/">Home</a></li>
                 <li><a href="/addHotel">Generate Hotel</a></li>
-                <li><a href="/list">List</a></li>
+                <li><a href="/list">All hotels</a></li>
                 <li><a href="/categories">Categories</a></li>
-                {{#if currentUser.isAdmin}}
-                <li><a href="/addCategory">Add Categories</a></li>
-                <li><a href="/users">Users</a></li>
-                {{/if}}
                 {{#if currentUser}}
-                <li>Welcome, {{currentUser.username}}</li>
+                    {{#if currentUser.isAdmin}}
+                        <li><a href="/addCategory">Add Categories</a></li>
+                        <li><a href="/users">Users</a></li>
+                    {{/if}}
+                <span class="greeting">
+                    <li>Welcome, {{currentUser.username}}</li>
                 <li>
                     <form id="logout-form" action="/logout" method="post"></form>
                     <a href="javascript:document.getElementById('logout-form').submit()">Logout</a>
                 </li>
+                </span>
                 {{else}}
                 <li><a href="/loginRegister">Login/Register</a></li>
 

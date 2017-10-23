@@ -1,8 +1,8 @@
 <h1>Details</h1>
 
-<fieldset>
-    <p>Title: {{selectedHotel.title}}</p>
-    <p>Location: {{selectedHotel.location}}</p>
+<div class="hotelPoster">
+    <h2>Title: {{selectedHotel.title}}</h2>
+    <h2>Location: {{selectedHotel.location}}</h2>
     <img class="hotelImg" src="{{selectedHotel.image}}" alt="hotel image">
     <p>Description: {{selectedHotel.description}}</p>
     <div>
@@ -15,18 +15,20 @@
         <p>Views: {{selectedHotel.viewCounter}}</p>
         {{#if selectedHotel.user.isAdmin}}
         <a href="/hotel/edit/{{selectedHotel._id}}">
-            <button>Edit</button>
+            <button class="button-edit" type="submit">Edit</button>
         </a>
         <a href="/hotel/delete/{{selectedHotel._id}}">
-            <button type="submit">Delete</button>
+            <button class="button-delete" type="submit">Delete</button>
         </a>
         {{/if}}
     </div>
+</div>
 
-</fieldset>
-
+{{#if comments}}
 <h2>Comments</h2>
-{{#each comments}}
+{{else}}
+<p>There are no comments</p>
+{{/if}} {{#each comments}}
 <fieldset>
     <a href="/profile/{{this.username}}">
         <p>Author: {{this.username}}</p>
@@ -42,7 +44,7 @@
     </a>
     {{/if}}
 </fieldset>
-{{/each}}
+{{/each}} 
 
 {{#if user}}
 <div class="login-page">

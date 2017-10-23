@@ -195,3 +195,54 @@ a, a:visited, a:active {
   display: block;
   margin-left: calc(30% + 15px);
 }
+
+.hotels {
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.hotelPoster {
+  width: 100%;
+  max-width: 900px;
+  max-height: 900px;
+  border-bottom: thick solid;
+  border-color: black;
+  padding: 30px;
+}
+
+p {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.button-edit {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+
+.button-delete {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+.greeting {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+}
+

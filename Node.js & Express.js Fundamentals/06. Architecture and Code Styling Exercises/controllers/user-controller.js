@@ -78,12 +78,17 @@ module.exports = {
     profile: (req, res) => {
         let username = req.user.username;
 
-        User.findOne({username: username}).then((user) => {
-            let rentedCars = user.rentedCars.map(c => c.toHexString());
+        User.findOne({username: username})
+        .populate('rentedCars')
+        .then((user) => {
+            let rentedCars = user.rentedCars;
             
             Car.find({_id: {$in: rentedCars }}).then((resultCars) => {
-                resultCars.forEach(c => c.totalPrice = c.pricePerDay * c.rentDays);
-                resultCars.forEach(c => c.brand = capitalize(c.brand));
+                for (let car of resultCars) {
+                    car.parsedDate = car.rentDate.toDateString();
+                    car.totalPrice = car.pricePerDay * car.rentDays;
+                    car.brand = capitalize(car.brand);
+                }
                 res.render('users/profile', {cars: resultCars});
 
             }).catch((err) => {

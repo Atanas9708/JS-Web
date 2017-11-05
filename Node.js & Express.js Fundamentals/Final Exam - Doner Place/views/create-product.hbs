@@ -19,11 +19,15 @@
 	<div>
 		<strong>Toppings</strong>
 		<br>
-		<form action="/createProduct" method="POST">
-			{{#each toppings}}
-			<input type="checkbox" name="topping" value="{{this}}">{{this}}
-			 {{/each}}
-		</form>
+		<div class="toppings">
+			<form action="/createProduct" method="POST">
+				{{#each toppings}}
+				<input type="checkbox" name="topping" value="{{this}}">
+				<label for="toppings">{{this}}</label>
+				<br>
+				{{/each}}
+			</form>
+		</div>
 		<input type="submit" value="Create" class="button" style="border:0" />
 	</div>
 </form>

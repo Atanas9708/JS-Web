@@ -1,37 +1,13 @@
 <h1></h1>
-    Your orders</h1>
+Your orders</h1>
 <div class="orders">
-
-        {{#each orders}}
-         <div class="order">
-            <span class="order-time">{{this.date}}</span>
-            <span class="order-name">{{this.product}} doner, {{this.size}} cm</span>
-            <span class="order-status">{{this.status}}</span>
-            <a href="/order-details/{{this._id}}" class="button order-button">Details</a>
-        </div>
-        <br>
-        {{/each}}
-
-    {{!-- <div class="order">
-        <span class="order-time">22.Oct 2017 10:12</span>
-        <span class="order-name">Lamb doner, 17 cm</span>
-        <span class="order-status">In transit</span>
-        <a href="order-details.html" class="button order-button">Details</a>
-    </div>
+    {{#each orders}}
     <div class="order">
-        <span class="order-time">21.Oct 2017 16:15</span>
-        <span class="order-name">Chicken doner, 24 cm</span>
-        <span class="order-status">Delivered</span>
-        <a href="order-details.html" class="button order-button">Details</a>
+        <span class="order-time">{{this.date}}</span>
+        <span class="order-name">{{this.product}} doner, {{this.size}} cm</span>
+        <span class="order-status">{{this.status}}</span>
+        <a href="/order-details/{{this._id}}" class="button order-button">Details</a>
     </div>
-    <div class="order">
-        <span class="order-time">20.Oct 2017 10:35</span>
-        <span class="order-name">Beef doner, 21 cm</span>
-        <span class="order-status">Delivered</span>
-        <a href="order-details.html" class="button order-button">Details</a>
-    </div>
-    <div class="order">
-        <span class="order-time">{{order.date}}</span>
-        <span class="order-name">{{order.}}, 21 cm</span>
-    </div> --}}
+    <br> 
+    {{/each}}
 </div>

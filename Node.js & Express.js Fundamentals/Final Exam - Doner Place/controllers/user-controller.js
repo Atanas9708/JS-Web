@@ -205,7 +205,7 @@ module.exports = {
 
                 for (let order of orders) {
                     order.parsedDate = order.date.toDateString();
-                    order.isPending = order.status === 'pending';
+                    order.isPending = order.status === 'Pending';
                     order.isDelivered = order.status === 'delivered';
                     order.inTransit = order.status === 'inTransit';
                     order.inProgress = order.status === 'inProgress';

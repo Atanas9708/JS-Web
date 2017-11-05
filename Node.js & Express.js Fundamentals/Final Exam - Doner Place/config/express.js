@@ -35,11 +35,6 @@ module.exports = app => {
             req.url = req.url.replace('/static', '');
         }
 
-        // if (req.url.startsWith('/rent/static')) {
-        //     req.url = req.url.replace('/rent/static', '');
-        // }
-
-
         next();
     }, express.static('./static'));
 

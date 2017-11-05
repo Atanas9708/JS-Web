@@ -17,7 +17,7 @@ module.exports = {
                 }
             }
 
-            res.render('index', {chickenProducts, beefProducts, lambProducts, user: req.user});
+            res.render('index', {chickenProducts, beefProducts, lambProducts});
 
         }).catch((err) => {
             console.log(err);

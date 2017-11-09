@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import reqHandler from './../../utils/reqHandler';
+import notifiy from './../../notifications/notify';
 
 class Register extends Component {
 
@@ -16,9 +17,11 @@ class Register extends Component {
                 console.log(response);
                 localStorage.setItem('token', response._kmd.authtoken);
                 localStorage.setItem('username', response.username);
+                notifiy.showInfo('Registration successful!');
+                window.location.replace('/catalog');
             })
             .catch(e => {
-                console.log(e);
+                notifiy.handleError(e);
             })
         }
     }

@@ -1,14 +1,17 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import reqHandler from './../../utils/reqHandler';
+import notifiy from './../../notifications/notify';
 
 let DeleteCommentPost = (props) => {
     let commentId = props.match.params.commentId;
-    console.log(commentId);
-    reqHandler.deleteComment(commentId);
+    reqHandler.deleteComment(commentId)
+    .then(() => {
+        notifiy.showInfo('Comment deleted!');
+    })
 
     return (
-        <Redirect  to='/catalog'/>
+        <Redirect  to={window.history.go(-1)}/>
     )
 }
 

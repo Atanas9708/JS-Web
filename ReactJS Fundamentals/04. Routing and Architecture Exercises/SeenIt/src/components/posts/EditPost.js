@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Post from './Post';
 import reqHandler from './../../utils/reqHandler';
+import notifiy from './../../notifications/notify';
 
 class EditPost extends Component {
     constructor(props) {
@@ -23,6 +24,10 @@ class EditPost extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
+        if (this.state.url === '' || this.state.title === '' || this.state.image === '') {
+            notifiy.showError('Please fill all the required fields');
+            return;
+        }
         let payload = {
             author: localStorage.getItem('username'),
             title: this.state.title,
@@ -33,6 +38,8 @@ class EditPost extends Component {
         let postId = this.props.match.params.postId;
         reqHandler.editPost(payload, postId)
         .then(response => {
+            notifiy.showInfo(`Post ${this.state.title} edited!`);
+            window.location.replace('/catalog');
             console.log(response);
         })
     }

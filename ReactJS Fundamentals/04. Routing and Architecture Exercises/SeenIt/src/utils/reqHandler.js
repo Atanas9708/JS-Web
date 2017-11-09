@@ -1,3 +1,5 @@
+import notify from './../notifications/notify';
+
 const hostUrl = 'https://baas.kinvey.com';
 const appKey = 'kid_BkhVvfRCZ';
 const appSecret = '95bc88e5b7ee4b809b045097c1db436f';
@@ -28,24 +30,6 @@ let reqHandler = {
             .then(data => {
                 return data.json();
             })
-    },
-    validateReg: (fields) => {
-        let userPattern = /[a-zA-Z]{3,}/g;
-        let passPattern = /[a-zA-Z0-9]{6,}/g;
-
-        if (!userPattern.test(fields.username)) {
-            return false;
-        }
-
-        if (!passPattern.test(fields.password)) {
-            return false;
-        }
-
-        if (fields.password !== fields.repeatPass) {
-            return false;
-        }
-
-        return true;
     },
     listAllPosts: () => {
         return fetch(`${hostUrl}/appdata/${appKey}/posts?query={}&sort={"_kmd.ect": -1}`, {
@@ -172,6 +156,27 @@ let reqHandler = {
             if (value !== 1) return 's';
             else return '';
         }
+    },
+    validateReg: (fields) => {
+        let userPattern = /[a-zA-Z]{3,}/g;
+        let passPattern = /[a-zA-Z0-9]{6,}/g;
+
+        if (!userPattern.test(fields.username)) {
+            notify.showError('A username should be at least 3 characters long and should contain only english alphabet letters.');
+            return false;
+        }
+
+        if (!passPattern.test(fields.password)) {
+            notify.showError('Password should be at least 6 characters long and should contain only english alphabet letters and digits.');
+            return false;
+        }
+
+        if (fields.password !== fields.repeatPass) {
+            notify.showError('Passwords should match!');
+            return false;
+        }
+
+        return true;
     }
 }
 

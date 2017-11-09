@@ -1,27 +1,32 @@
 import React, { Component } from 'react';
 import reqHandler from './../../utils/reqHandler';
-import { Redirect } from 'react-router-dom';
+import notifiy from './../../notifications/notify';
 
 class Login extends Component {
 
     constructor(props) {
         super(props);
+
+        this.onChange = this.onChange.bind(this);
+        this.loginUser = this.loginUser.bind(this);
     }
 
     onChange = (e) => {
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({ [e.target.name]: e.target.value });
     }
 
     loginUser = (e) => {
         e.preventDefault();
         reqHandler.login(this.state)
-        .then(response => {
-            console.log(response);
-            localStorage.setItem('token', response._kmd.authtoken);
-            localStorage.setItem('username', response.username);
-        }).catch(e => {
-            console.log(e);
-        })
+            .then(response => {
+                localStorage.setItem('token', response._kmd.authtoken);
+                localStorage.setItem('username', response.username);
+                notifiy.showInfo('Loggin successful!');
+                window.location.replace('/catalog');
+            })
+            .catch((e) => {
+                console.log(e);
+            })
     }
 
     render() {

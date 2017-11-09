@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import reqHandler from './../../utils/reqHandler';
+import notifiy from './../../notifications/notify';
 
 class CreateComment extends Component {
     constructor(props) {
@@ -12,6 +13,10 @@ class CreateComment extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
+        if (this.state === null) {
+            notifiy.showError('The content of the comment cannot be empty!');
+            return;
+        }
         let data = {
             postId: this.props.id,
             content: this.state.content,
@@ -19,6 +24,8 @@ class CreateComment extends Component {
         };
         reqHandler.createComment(data)
         .then(response => {
+            notifiy.showInfo('Comment created!');
+            window.location.replace(`/details/${this.props.id}`);
             console.log(response);
         })
 

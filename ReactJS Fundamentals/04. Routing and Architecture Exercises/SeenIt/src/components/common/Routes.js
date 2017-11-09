@@ -7,17 +7,18 @@ import EditPost from './../posts/EditPost';
 import DeletePost from './../posts/DeletePost';
 import Details from './../posts/Details';
 import DeleteCommentPost from './../comments/DeleteCommentPost';
+import GuestHome from './../auth/GuestHome';
 
 let Routes = () => (
     <Switch>
-        <Route exact path='/' component={Catalog} />
-        <Route exact path='/catalog' component={Catalog} />
-        <Route exact path='/submit' component={Submit} />
-        <Route exact path='/myPosts' component={MyPosts} />
-        <Route exact path='/editPost/:postId' component={EditPost} />
-        <Route exact path='/deletePost/:postId' component={DeletePost} />
-        <Route exact path='/details/:postId' component={Details} />
-        <Route exact path='/deleteComment/:commentId' component={DeleteCommentPost} />
+        <Route exact path='/' component={GuestHome} />
+        <Route path='/catalog' component={Catalog} />
+        <Route path='/submit' component={Submit} />
+        <Route path='/myPosts' component={MyPosts} />
+        <Route path='/editPost/:postId' component={EditPost} />
+        <Route path='/deletePost/:postId' component={DeletePost} />
+        <Route path='/details/:postId' component={Details} />
+        <Route path='/deleteComment/:commentId' component={DeleteCommentPost} />
     </Switch>
 )
 

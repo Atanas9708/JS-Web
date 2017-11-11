@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-import Wrapper from './components/Wrapper';
+import CounterWrapper from './components/counter/CounterWrapper';
+import InputWrapper from './components/input/InputWrapper';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Wrapper />
+        <CounterWrapper />
+        <br />
+        <InputWrapper />
       </div>
     );
   }

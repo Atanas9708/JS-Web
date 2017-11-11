@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import reqHandler from './../../utils/reqHandler';
 import notifiy from './../../notifications/notify';
 
 class CreateComment extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            posted: false
+        }
+
     }
 
     onChange = (e) => {
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({ [e.target.name]: e.target.value });
     }
 
     onSubmit = (e) => {
@@ -23,12 +29,10 @@ class CreateComment extends Component {
             author: localStorage.getItem('username')
         };
         reqHandler.createComment(data)
-        .then(response => {
-            notifiy.showInfo('Comment created!');
-            window.location.replace(`/details/${this.props.id}`);
-            console.log(response);
-        })
-
+            .then(response => {
+                notifiy.showInfo('Comment created!');
+                window.location.replace(`/details/${this.props.id}`);
+            })
     }
 
     render() {

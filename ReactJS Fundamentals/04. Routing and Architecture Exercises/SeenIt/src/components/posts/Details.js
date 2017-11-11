@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 import Comment from './../comments/Comment';
 import CreateComment from './../comments/CreateComment';
-import Controls from './../common/Controls';
 
 class Details extends Component {
     constructor(props) {
@@ -19,9 +18,9 @@ class Details extends Component {
 
     loadComments = (postId) => {
         reqHandler.loadCommentsById(postId)
-        .then(comments => {
-            this.setState({comments: comments});
-        })
+            .then(comments => {
+                this.setState({ comments: comments });
+            })
     }
 
     componentDidMount() {
@@ -35,6 +34,20 @@ class Details extends Component {
                 this.loadComments(postId);
             })
     }
+
+    // componentWillReceiveProps(nextProps) {
+    //     if(nextProps.comments.length !== this.state.comments.length) {
+    //         this.setState({comments: nextProps.comments});
+    //     }
+    // }
+
+    // componentDidUpdate(prevProps, prevState) {
+    //     const { comments } = this.state;
+    //     console.log(prevProps);
+    //     if (comments.length !== prevState.comments.length) {
+    //         console.log('something happend');
+    //     }
+    // }
 
     render() {
         return (
@@ -58,7 +71,12 @@ class Details extends Component {
                             </div>
                             <div className="controls">
                                 <ul>
-                                    {this.state.post.author === localStorage.getItem('username') ? <Controls id={this.props.match.params.postId} /> : null}
+                                    {this.state.post.author === localStorage.getItem('username') &&
+                                        <div>
+                                            <li className="action"><Link className="editLink" to={`/editPost/${this.state.post._id}`}>edit</Link></li>
+                                            <li className="action"><Link className="deleteLink" to={`/deletePost/${this.state.post._id}`}>delete</Link></li>
+                                        </div>
+                                    }
                                 </ul>
                             </div>
 
@@ -68,7 +86,7 @@ class Details extends Component {
                 </div>
                 <CreateComment id={this.props.match.params.postId} />
                 {this.state.comments.map((c, i) => {
-                    return <Comment key={i} data={c}/>
+                    return <Comment key={i} data={c} />
                 })}
             </section>
         )

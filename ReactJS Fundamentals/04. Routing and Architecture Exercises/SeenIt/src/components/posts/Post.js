@@ -9,15 +9,15 @@ let Post = (props) => {
                 <span>{props.rank}</span>
             </div>
             <div className="col thumbnail">
-                <Link to={props.data.url}>
+                <a href={props.data.url}>
                     <img src={props.data.imageUrl} />
-                </Link>
+                </a>
             </div>
             <div className="post-content">
                 <div className="title">
-                    <Link to={props.data.url}>
+                    <a href={props.data.url}>
                         {props.data.title}
-                    </Link>
+                    </a>
                 </div>
                 <div className="details">
                     <div className="info">

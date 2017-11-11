@@ -12,7 +12,7 @@ let DeletePost = (props) => {
     })
 
     return (
-        <Redirect to ='/catalog'/>
+        <Redirect to ='/'/>
     )
 }
 

@@ -26,9 +26,9 @@ class Details extends Component {
     componentDidMount() {
         let postId = this.props.match.params.postId;
         reqHandler.loadPostById(postId)
-            .then(response => {
-                let time = reqHandler.calcTime(response._kmd.ect);
-                this.setState({ post: response, time: time })
+            .then(post => {
+                let time = reqHandler.calcTime(post._kmd.ect);
+                this.setState({ post, time: time })
             })
             .then(() => {
                 this.loadComments(postId);
@@ -54,15 +54,15 @@ class Details extends Component {
             <section id="viewComments">
                 <div className="post">
                     <div className="col thumbnail">
-                        <Link to="http://sammyjs.org/docs/api/0.7.4/all#Sammy.RenderContext-load">
+                        <a href={this.state.post.url}>
                             <img src={this.state.post.imageUrl} />
-                        </Link>
+                        </a>
                     </div>
                     <div className="post-content">
                         <div className="title">
-                            <Link to="http://sammyjs.org/docs/api/0.7.4/all#Sammy.RenderContext-load">
+                            <a href={this.state.post.url}>
                                 {this.state.post.title}
-                            </Link>
+                            </a>
                         </div>
                         <div className="details">
                             <p>{this.state.post.description}</p>

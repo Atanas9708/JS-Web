@@ -31,11 +31,13 @@ class CreateComment extends Component {
         reqHandler.createComment(data)
             .then(response => {
                 notifiy.showInfo('Comment created!');
+                this.setState({posted: true})
                 window.location.replace(`/details/${this.props.id}`);
             })
     }
 
     render() {
+        const { posted } = this.state;
         return (
             <div className="post post-content">
                 <form id="commentForm" onSubmit={this.onSubmit}>
@@ -43,6 +45,9 @@ class CreateComment extends Component {
                     <textarea onChange={this.onChange} name="content" type="text"></textarea>
                     <input type="submit" value="Add Comment" id="btnPostComment" />
                 </form>
+                {posted && (
+                    <Redirect exact to={`/details/${this.props.id}`} />
+                )}
             </div>
         )
     }

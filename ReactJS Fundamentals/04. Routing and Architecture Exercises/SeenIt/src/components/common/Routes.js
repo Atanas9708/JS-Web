@@ -11,7 +11,7 @@ import GuestHome from './../auth/GuestHome';
 
 let Routes = () => (
     <Switch>
-        <Route exact path='/' component={GuestHome} />
+        <Route exact path='/' component={Catalog} />
         <Route path='/catalog' component={Catalog} />
         <Route path='/submit' component={Submit} />
         <Route path='/myPosts' component={MyPosts} />

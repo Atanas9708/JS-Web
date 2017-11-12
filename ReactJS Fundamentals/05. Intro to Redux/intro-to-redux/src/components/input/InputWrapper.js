@@ -19,11 +19,12 @@ class InputWrapper extends Component {
             <div>
                 <input onChange={this.onChange} id="input" name="input" type="text" />
                 <button onClick={() => {
-                    if (this.state === null) {
+                    if (this.state === null || this.state.input === '') {
                         return;
                     }
                     this.props.actions.addInput({ input: this.state.input });
                     document.getElementById('input').value = '';
+                    this.setState({input: ''});
                 }}>Add input</button>
 
                 {this.props.appState.user.map(user => {

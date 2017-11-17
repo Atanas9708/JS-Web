@@ -1,15 +1,17 @@
 import React from 'react';
 import reqHandler from './../../utils/reqHandler';
-import DeleteCommentGet from './../comments/DeleteCommentGet';
+import DeleteComment from './../comments/DeleteComment';
 
-let Comment = (props) => (
-    <article className="post post-content">
+let Comment = (props) => {
+    return (
+        <article className="post post-content">
         <p>{props.data.content}</p>
         <div className="info">
             submitted {reqHandler.calcTime(props.data._kmd.ect)} ago by {props.data.author} | 
-            {localStorage.getItem('username') === props.data.author ?<DeleteCommentGet id={props.data._id}/> : null}
+            {localStorage.getItem('username') === props.data.author ?<DeleteComment id={props.data._id}/> : null}
         </div>
     </article>
-)
+    )
+}
 
 export default Comment;

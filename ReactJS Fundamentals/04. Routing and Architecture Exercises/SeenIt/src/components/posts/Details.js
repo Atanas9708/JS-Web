@@ -23,8 +23,9 @@ class Details extends Component {
             })
     }
 
+
     componentDidMount() {
-        let postId = this.props.match.params.postId;
+        const postId = this.props.match.params.postId;
         reqHandler.loadPostById(postId)
             .then(post => {
                 let time = reqHandler.calcTime(post._kmd.ect);
@@ -35,19 +36,11 @@ class Details extends Component {
             })
     }
 
-    // componentWillReceiveProps(nextProps) {
-    //     if(nextProps.comments.length !== this.state.comments.length) {
-    //         this.setState({comments: nextProps.comments});
-    //     }
-    // }
 
-    // componentDidUpdate(prevProps, prevState) {
-    //     const { comments } = this.state;
-    //     console.log(prevProps);
-    //     if (comments.length !== prevState.comments.length) {
-    //         console.log('something happend');
-    //     }
-    // }
+    componentDidUpdate() {
+        const postId = this.props.match.params.postId;
+        this.loadComments(postId);
+    }
 
     render() {
         return (

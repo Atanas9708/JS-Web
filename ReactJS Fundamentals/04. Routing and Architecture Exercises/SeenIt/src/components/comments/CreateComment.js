@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import reqHandler from './../../utils/reqHandler';
 import notifiy from './../../notifications/notify';
 
@@ -8,9 +7,8 @@ class CreateComment extends Component {
         super(props);
 
         this.state = {
-            posted: false
+            content: ''
         }
-
     }
 
     onChange = (e) => {
@@ -31,23 +29,19 @@ class CreateComment extends Component {
         reqHandler.createComment(data)
             .then(response => {
                 notifiy.showInfo('Comment created!');
-                this.setState({posted: true})
-                window.location.replace(`/details/${this.props.id}`);
+                this.setState({content: ''});
+                document.getElementById('input').value = '';
             })
     }
 
     render() {
-        const { posted } = this.state;
         return (
             <div className="post post-content">
                 <form id="commentForm" onSubmit={this.onSubmit}>
                     <label>Comment</label>
-                    <textarea onChange={this.onChange} name="content" type="text"></textarea>
+                    <textarea onChange={this.onChange} id="input" name="content" type="text"></textarea>
                     <input type="submit" value="Add Comment" id="btnPostComment" />
                 </form>
-                {posted && (
-                    <Redirect exact to={`/details/${this.props.id}`} />
-                )}
             </div>
         )
     }

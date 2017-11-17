@@ -5,7 +5,7 @@ let Header = (props) => {
         <header>
             <span className="logo">☃</span><span className="header">SeenIt</span>
             <div
-                id="profile"><span>{props.name}</span>|<Link onClick={() => {
+                id="profile"><span>Welcome, {props.name}</span>|<Link onClick={() => {
                     localStorage.clear();
                     window.location.replace('/');
                     }} to="/logout">logout</Link>

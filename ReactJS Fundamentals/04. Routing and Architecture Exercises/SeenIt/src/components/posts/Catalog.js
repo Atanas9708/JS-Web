@@ -7,7 +7,6 @@ class Catalog extends Component {
         super(props);
 
         this.state = {
-            rank: 1,
             posts: []
         }
     }
@@ -23,12 +22,12 @@ class Catalog extends Component {
         this.loadPosts();
     }
 
-
     render() {
+        let rank = 1;
         return (
             <div className="posts">
                 {this.state.posts.map((p, i) => {
-                    return <Post key={i} data={p} rank={this.state.rank++} />
+                    return <Post key={i} data={p} rank={rank++} />
                 })}
             </div>
         )

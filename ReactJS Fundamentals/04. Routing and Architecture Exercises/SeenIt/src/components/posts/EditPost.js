@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Post from './Post';
 import { Redirect } from 'react-router-dom';
 import reqHandler from './../../utils/reqHandler';
 import notifiy from './../../notifications/notify';

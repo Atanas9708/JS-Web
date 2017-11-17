@@ -29,7 +29,10 @@ let Post = (props) => {
                                 <div>
                                     <li className="action"><Link className="commentsLink" to={`/details/${props.data._id}`}>details</Link></li>
                                     <li className="action"><Link className="editLink" to={`/editPost/${props.data._id}`}>edit</Link></li>
-                                    <li className="action"><Link className="deleteLink" to={`/deletePost/${props.data._id}`}>delete</Link></li>
+                                    <li className="action"><a onClick={() => {
+                                        reqHandler.deletePost(props.data._id)
+                                        .then(() => window.location.replace('/'));
+                                    }} className="deleteLink" href="javascript:void(0)">delete</a></li>
                                 </div>
                             }
                             {props.data.author !== localStorage.getItem('username') && 

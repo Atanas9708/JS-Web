@@ -1,0 +1,23 @@
+extends ../layout.pug
+
+block content
+ if products.length === 0
+  h1.head-title Cart is empty
+ else
+  h1.head-title= `${user.username}'s Cart` 
+  form#search-form
+    input(type='text', name='query', placeholder='Search...')
+    input(type='submit', value='Search')
+  .cards
+    each product in products
+      .product-card
+        img.product-img(src=`${product.image}`)
+        h2=product.name
+        h3=product.price
+        p=product.description
+
+        a.btn.btn-small.btn-danger(href=`/item/discard/${product._id}`)= 'Discard'
+
+       
+          
+        

@@ -1,0 +1,28 @@
+const Product = require('../models/Product');
+
+module.exports.index = (req, res) => {
+    let qsData = req.query;
+
+    Product
+        .find({buyer: null})
+        .populate('category')
+        .then((products) => {
+            if (qsData.query) {
+                qsData.query = qsData.query.toLowerCase();
+                products = products
+                    .filter(p => p.name.toLowerCase().includes(qsData.query));
+            }
+
+            let data = {products: products, user: req.user};
+            if (req.query.error) {
+                data.error = req.query.error;
+            } else if (req.query.success) {
+                data.success = req.query.success;
+            }
+
+            res.render('home/index', data);
+
+        }).catch((err) => {
+            console.log(err);
+        });
+}

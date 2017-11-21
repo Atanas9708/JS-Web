@@ -30,18 +30,18 @@ class YearlyBalanceCard extends Component {
         };
 
         return (
-            <div class="col-md-3">
-                <div class="card text-white bg-secondary">
-                    <div class="card-body">
-                        <blockquote class="card-blockquote">
+            <div className="col-md-3">
+                <div className="card text-white bg-secondary">
+                    <div className="card-body">
+                        <blockquote className="card-blockquote">
                             <h2>{monthName[Number(month)]}</h2>
                             <h4>Year {year}</h4>
-                            <label for="budget">Budget:</label>
-                            <input onChange={this.onChangeHandler} class="col-md-9" value={budget} disabled="true" name="budget" disabled="" />
-                            <label for="balance">Balance:</label>
-                            <input onChange={this.onChangeHandler} class="col-md-9" value={balance}disabled="true" name="balance" disabled="" />
-                            <div class="space-top">
-                                <Link to={`/monthlyDetails/${month}`}class="btn btn-secondary">Details</Link>
+                            <label htmlFor="budget">Budget:</label>
+                            <input onChange={this.onChangeHandler} className="col-md-9" value={budget} disabled="true" name="budget" disabled="" />
+                            <label htmlFor="balance">Balance:</label>
+                            <input onChange={this.onChangeHandler} className="col-md-9" value={balance}disabled="true" name="balance" disabled="" />
+                            <div className="space-top">
+                                <Link to={`/monthly/${month}`}className="btn btn-secondary">Details</Link>
                             </div>
                         </blockquote>
                     </div>

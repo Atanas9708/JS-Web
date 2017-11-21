@@ -43,7 +43,7 @@ class AddExpense extends Component {
         addExpense(year, month, expense)
         .then((res) => {
             toastr.success('Expense added successfully!');
-            this.props.history.push(`/monthlyDetails/${month}`);
+            this.props.history.push(`/monthly/${month}`);
         })
     }
 
@@ -67,36 +67,36 @@ class AddExpense extends Component {
         };
 
         return (
-            <div class="container">
-            <div class="row space-top">
-                <div class="col-md-12">
+            <div className="container">
+            <div className="row space-top">
+                <div className="col-md-12">
                     <h1>Add Expenses</h1>
                     <h3>{monthName[month]} {year}</h3>
                 </div>
             </div>
-            <div class="row space-top">
-                <div class="col-md-10">
+            <div className="row space-top">
+                <div className="col-md-10">
                     <form onSubmit={this.onSubmitHandler}>
                         <legend>Add a new expense</legend>
                         <div class="form-group">
-                            <label class="col-md-2" for="name">Name:</label>
-                            <input onChange={this.onChangeHandler} class="col-md-2" name="name" type="text"/>
+                            <label className="col-md-2" htmlFor="name">Name:</label>
+                            <input onChange={this.onChangeHandler} className="col-md-2" name="name" type="text"/>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-2" for="category">Category:</label>
-                            <select onChange={this.onChangeHandler} value={this.state.category} class="col-md-2 pl-2" name="category">
+                        <div className="form-group">
+                            <label className="col-md-2" htmlFor="category">Category:</label>
+                            <select onChange={this.onChangeHandler} value={this.state.category} className="col-md-2 pl-2" name="category">
                                 <option>Non-essential</option>
                                 <option>Fixed</option>
                                 <option>Variable</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-2" for="cost">Cost:</label>
-                            <input onChange={this.onChangeHandler} class="col-md-2" name="cost" type="number"/>
+                        <div className="form-group">
+                            <label className="col-md-2" htmlFor="cost">Cost:</label>
+                            <input onChange={this.onChangeHandler} className="col-md-2" name="cost" type="number"/>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-2" for="paymentDate">Payment Date:</label>
-                            <input onChange={this.onChangeHandler} class="col-md-2" name="paymentDate" type="number"/>
+                        <div className="form-group">
+                            <label className="col-md-2" htmlFor="paymentDate">Payment Date:</label>
+                            <input onChange={this.onChangeHandler} className="col-md-2" name="paymentDate" type="number"/>
                         </div>
                         <input type="submit" class="btn btn-secondary" value="Add"/>
                     </form>

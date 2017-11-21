@@ -39,10 +39,11 @@ class LoginPage extends Component {
         login(this.state.email, this.state.password)
         .then((res) => {
             if (res.success) {
+                const currentMonth = (new Date()).getMonth() + 1
                 localStorage.setItem('token', res.token);
                 localStorage.setItem('name', res.user.name);
                 toastr.success('Login successful!');
-                this.props.history.push('/monthly');
+                this.props.history.push(`/monthly/${currentMonth}`);
             }
         })
     }
@@ -51,7 +52,7 @@ class LoginPage extends Component {
         return (
             <div className="container">
                 <div className="row space-top">
-                    <div class="col-md-12">
+                    <div className="col-md-12">
                         <h1>Login</h1>
                     </div>
                 </div>
@@ -59,12 +60,12 @@ class LoginPage extends Component {
                     <div className="row space-top">
                         <div className="col-md-3">
                             <div className="form-group">
-                                <label className="form-control-label" for="email">E-mail</label>
-                                <input onChange={this.onChangeHandler} name="email" class="form-control" id="email" type="text" />
+                                <label className="form-control-label" htmlFor="email">E-mail</label>
+                                <input onChange={this.onChangeHandler} name="email" className="form-control" id="email" type="text" />
                             </div>
                             <div className="form-group">
-                                <label className="form-control-label" for="password">Password</label>
-                                <input onChange={this.onChangeHandler} name="password" class="form-control" id="password" type="password" />
+                                <label className="form-control-label" htmlFor="password">Password</label>
+                                <input onChange={this.onChangeHandler} name="password" className="form-control" id="password" type="password" />
                             </div>
                             <input type="submit" className="btn btn-secondary" value="Login" />
                         </div>

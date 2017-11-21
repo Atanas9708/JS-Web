@@ -8,8 +8,8 @@ import RegisterPage from './components/Auth/RegisterPage';
 import LoginPage from './components/Auth/LoginPage';
 import YearlyBalanceView from './components/Yearly/YearlyBalanceView';
 import MonthlyBalanceView from './components/Monthly/MonthlyBalanceView';
-import CurrentMonthBalance from './components/Monthly/CurrentMonthBalance';
 import AddExpense from './components/Monthly/AddExpense';
+import NotFound from './components/common/NotFound';
 
 import toastr from 'toastr';
 
@@ -36,11 +36,11 @@ class App extends Component {
                         {!loggedIn && <Route exact path="/" component={RegisterPage} />}
                         {loggedIn && <Route exact path="/" component={MonthlyBalanceView} />}
                         <Route path="/yearly" component={YearlyBalanceView} />
-                        <PrivateRoute path="/monthly" component={CurrentMonthBalance} />
-                        <PrivateRoute path="/monthlyDetails/:id" component={MonthlyBalanceView} />
-                        <Route path="/addexpense/:month" component={AddExpense} />
+                        <PrivateRoute path="/monthly/:id" component={MonthlyBalanceView} />
+                        <PrivateRoute path="/addexpense/:month" component={AddExpense} />
                         <Route path="/login" component={LoginPage} />
                         <Route path="/register" component={RegisterPage} />
+                        <Route component={NotFound} />
                     </Switch>
                 </div>
             </main>

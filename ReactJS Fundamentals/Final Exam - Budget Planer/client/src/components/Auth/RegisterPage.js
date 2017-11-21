@@ -61,21 +61,21 @@ class RegisterPage extends Component {
                 <div className="row">
                     <div className="col-md-3">
                         <div className="form-group">
-                            <label className="form-control-label " for="new-username">Username</label>
+                            <label className="form-control-label " htmlFor="new-username">Username</label>
                             <input onChange={this.onChangeHandler} name="username" className="form-control" id="new-username" type="text"/>
                         </div>
                         <div className="form-group has-success">
-                            <label className="form-control-label" for="new-email">E-mail</label>
+                            <label className="form-control-label" htmlFor="new-email">E-mail</label>
                             <input onChange={this.onChangeHandler} name="email" className="form-control is-valid" id="new-email" type="text"/>
                             <div className="form-control-feedback">This input value is valid</div>
                         </div>
                         <div className="form-group has-danger">
-                            <label className="form-control-label" for="new-password">Password</label>
+                            <label className="form-control-label" htmlFor="new-password">Password</label>
                             <input onChange={this.onChangeHandler} name="password" className="form-control" id="new-password" type="password"/>
                             {/* <div className="form-control-feedback">This input value is invalid</div> */}
                         </div>
                         <div className="form-group has-danger">
-                            <label className="form-control-label" for="new-repeat-password">Repeat password</label>
+                            <label className="form-control-label" htmlFor="new-repeat-password">Repeat password</label>
                             <input onChange={this.onChangeHandler} name="repeat" className="form-control" id="new-repeat-password" type="password"/>
                             {/* <div className="form-control-feedback">This input value is invalid</div> */}
                         </div>

@@ -24,7 +24,7 @@ class ExpenseCard extends Component {
                             toastr.success('Expense deleted successfully!');
                             this.props.history.push('/yearly');
                         }))
-                    }} href="javascript:void(0)" class="btn btn-secondary">Delete</a>
+                    }} href="javascript:void(0)" className="btn btn-secondary">Delete</a>
                 </td>
             </tr>
         )

@@ -26,13 +26,13 @@ class YearlyBalanceList extends Component {
 
     render() {
         return (
-            <div class="container">
-                <div class="row space-top">
-                    <div class="col-md-12">
+            <div className="container">
+                <div className="row space-top">
+                    <div className="col-md-12">
                         <h1>Yearly Balance</h1>
                     </div>
                 </div>
-                <div class="row space-top col-md-12">
+                <div className="row space-top col-md-12">
                     {Object.entries(this.state.balance).map(balance => {
                         let budget = 0;
                         let b = 0;

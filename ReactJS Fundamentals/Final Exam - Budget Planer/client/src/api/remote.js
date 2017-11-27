@@ -45,7 +45,7 @@ function listYearlyBalance(year) {
         })
 }
 
-function getMontlyBalance(year, month) {
+function getMonthlyBalance(year, month) {
     return fetch(host + `plan/${year}/${month}`, {
         method: 'GET',
         headers: {
@@ -71,7 +71,7 @@ function addExpense(year, month, expense) {
         })
 }
 
-function updateIncomeAndBudger(year, month, update) {
+function updateIncomeAndBudget(year, month, update) {
     return fetch(host + `plan/${year}/${month}`, {
         method: 'POST',
         headers: {
@@ -98,4 +98,4 @@ function deleteExpense(expenseId) {
         })
 }
 
-export { register, login, listYearlyBalance, getMontlyBalance, addExpense, updateIncomeAndBudger, deleteExpense };
+export { register, login, listYearlyBalance, getMonthlyBalance, addExpense, updateIncomeAndBudget, deleteExpense };

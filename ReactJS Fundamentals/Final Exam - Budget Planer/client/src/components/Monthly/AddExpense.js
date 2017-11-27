@@ -50,7 +50,6 @@ class AddExpense extends Component {
     render() {
         const year = (new Date()).getFullYear();
         const month = this.props.match.params.month || (new Date()).getMonth() + 1;
-        console.log(month);
         const monthName = {
             1: 'January',
             2: 'February',
@@ -78,7 +77,7 @@ class AddExpense extends Component {
                 <div className="col-md-10">
                     <form onSubmit={this.onSubmitHandler}>
                         <legend>Add a new expense</legend>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label className="col-md-2" htmlFor="name">Name:</label>
                             <input onChange={this.onChangeHandler} className="col-md-2" name="name" type="text"/>
                         </div>
@@ -98,7 +97,7 @@ class AddExpense extends Component {
                             <label className="col-md-2" htmlFor="paymentDate">Payment Date:</label>
                             <input onChange={this.onChangeHandler} className="col-md-2" name="paymentDate" type="number"/>
                         </div>
-                        <input type="submit" class="btn btn-secondary" value="Add"/>
+                        <input type="submit" className="btn btn-secondary" value="Add"/>
                     </form>
                 </div>
             </div>

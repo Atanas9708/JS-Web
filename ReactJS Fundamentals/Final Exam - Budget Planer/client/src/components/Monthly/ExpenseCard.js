@@ -4,10 +4,6 @@ import { withRouter } from 'react-router-dom';
 import toastr from 'toastr';
 
 class ExpenseCard extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const { name, category, amount, date, id } = this.props;
         return (

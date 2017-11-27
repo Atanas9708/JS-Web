@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getMontlyBalance } from './../../api/remote';
+import { getMonthlyBalance } from './../../api/remote';
 import ExpenseCard from './ExpenseCard';
 
 class ExpenseList extends Component {
@@ -7,25 +7,35 @@ class ExpenseList extends Component {
         super(props);
 
         this.state = {
-            expense: {}
+            expense: {},
+            month: this.props.month
         }
     }
 
     loadExpense() {
         const year = (new Date()).getFullYear();
         let { month } = this.props;
-        getMontlyBalance(year, month)
+        getMonthlyBalance(year, month)
             .then((expense) => {
                 this.setState({ expense });
             })
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.loadExpense();
     }
 
-    render() {
+    componentWillReceiveProps(nextProps) {
+        this.setState({month: nextProps.month});
+    }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.month !== prevState.month) {
+            this.loadExpense();
+        }
+    }
+
+    render() {
         let expenses = [];
         Object.entries(this.state.expense).map(expense => {
             for (let item of expense) {

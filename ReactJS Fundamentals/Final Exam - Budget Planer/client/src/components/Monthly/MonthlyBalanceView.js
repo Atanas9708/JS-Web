@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ExpenseList from './ExpenseList';
 import { Link } from 'react-router-dom';
-import { updateIncomeAndBudger } from './../../api/remote';
+import { updateIncomeAndBudget, getMonthlyBalance } from './../../api/remote';
 import { withRouter } from 'react-router-dom';
 import toastr from 'toastr';
 
@@ -11,11 +11,13 @@ class MonthlyBalanceView extends Component {
 
         this.state = {
             income: 0,
-            budget: 0
+            budget: 0,
+            month: this.props.match.params.id
         }
 
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.onSubmitHandler = this.onSubmitHandler.bind(this);
+        this.setIncomeAndBudget = this.setIncomeAndBudget.bind(this);
     }
 
     onChangeHandler(e) {
@@ -24,17 +26,36 @@ class MonthlyBalanceView extends Component {
 
     update() {
         const year = (new Date()).getFullYear();
-        const month = this.props.match.params.id || (new Date()).getMonth() + 1;
+        let { month } = this.state;
         const update = {
             income: Number(this.state.income),
             budget: Number(this.state.budget)
         };
-        updateIncomeAndBudger(year, month, update)
+        updateIncomeAndBudget(year, month, update)
             .then((res => {
-                console.log(res);
                 toastr.success('Income and Budget are updated!');
                 this.props.history.push('/yearly');
             }))
+    }
+
+    setIncomeAndBudget() {
+        const year = (new Date()).getFullYear();
+        const month = this.props.match.params.id || this.state.monthState;
+        getMonthlyBalance(year, month).then(res => this.setState({ budget: res.budget, income: res.income }));
+    }
+
+    componentWillMount() {
+        this.setIncomeAndBudget();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({ month: nextProps.match.params.id });
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.month !== this.state.month) {
+            this.setIncomeAndBudget();
+        };
     }
 
     onSubmitHandler(e) {
@@ -42,11 +63,10 @@ class MonthlyBalanceView extends Component {
         this.update();
     }
 
-
     render() {
-        const month = this.props.match.params.id || (new Date().getMonth() + 1);
+        let month = this.props.match.params.id;
         if (month <= 0 || month > 12) {
-           return <div className="container">
+            return <div className="container">
                 <div className="row space-top">
                     <div className="col-md-12">
                         <h1>404: Page not found!</h1>

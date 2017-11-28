@@ -1,0 +1,11 @@
+<div *ngIf="article">
+  <h1>Details for {{article?.title}}</h1>
+  <div>{{article?.title}}</div>
+  <button (click)="showHideImage()">{{imageText}}</button>
+  <img *ngIf="displayImage" src="{{article?.link}}" alt="img">
+  <div>Author: {{article?.author}}</div>
+  <div>{{limitDesc(article?.text)}}</div>
+  <button *ngIf="!hide" (click)="readMore()">Read More</button>
+  <button *ngIf="hide" (click)="hideDesc()">Hide</button>
+  <button (click)="deleteArticle(article.id)">Delete</button>
+</div>

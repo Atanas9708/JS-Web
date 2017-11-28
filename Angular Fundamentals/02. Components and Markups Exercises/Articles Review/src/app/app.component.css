@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+}
+
+.left {
+    background-color: antiquewhite; 
+}
+
+.right {
+    background-color: rgb(174, 174, 211); 
+}
+
+h1 {
+    text-align: center;
+}

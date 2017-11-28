@@ -1,0 +1,16 @@
+.articles:hover {
+    color: blue;
+}
+
+.articles {
+    text-align: center;
+}
+
+.article-card {
+    display: inline-block;
+    width: 200px;
+    text-align: center;
+    background: #f3c1a4;
+    margin: 1em;
+    padding: 0.25em;
+}

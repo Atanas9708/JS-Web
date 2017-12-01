@@ -1,0 +1,6 @@
+<div *ngIf="pokemonToView" class="pokemon">
+  <h3>{{pokemonToView?.data.ename}}</h3>
+  <p>HP: {{pokemonToView?.data.base.HP}}</p>
+  <p>Attack: {{pokemonToView?.data.base.Attack}}</p>
+  <p>Defense: {{pokemonToView?.data.base.Defense}}</p>
+</div>

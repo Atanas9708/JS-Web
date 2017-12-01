@@ -1,0 +1,16 @@
+.pokemon-card {
+    display: inline-block;
+    width: 200px;
+    text-align: center;
+    background: #f3c1a4;
+    margin: 0.50em;
+    padding: 0.25em;
+}
+
+.pokemons:hover {
+    color: blue;
+}
+
+.pokemons {
+    text-align: center;
+}

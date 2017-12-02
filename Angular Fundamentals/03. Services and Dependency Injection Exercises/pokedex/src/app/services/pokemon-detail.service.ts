@@ -20,8 +20,4 @@ export class PokemonDetailService {
    getPokemonById(pokemonId) {
        return this.http.get(url + `/pokemon?pokemonId=${pokemonId}`);
    }
-
-   getPokemonImg(pokemonImg) {
-       return this.http.get(url + '/' + pokemonImg);
-   }
 }

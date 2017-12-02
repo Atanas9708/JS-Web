@@ -3,4 +3,5 @@
   <p>HP: {{pokemonToView?.data.base.HP}}</p>
   <p>Attack: {{pokemonToView?.data.base.Attack}}</p>
   <p>Defense: {{pokemonToView?.data.base.Defense}}</p>
+  <img *ngIf="isLogged" src="http://localhost:5000/{{pokemonToView?.img}}">
 </div>

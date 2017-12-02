@@ -8,19 +8,18 @@ import { PokemonDetailService } from './../../services/pokemon-detail.service';
 })
 export class PokemonDetailComponent implements OnInit {
   public pokemonToView: Object;
+  public isLogged: boolean;
 
   constructor(private details: PokemonDetailService) {
     this.details.receivedPokemon$.subscribe(data => {
       this.details.getPokemonById(data.id).subscribe(pokemon => {
         this.pokemonToView = pokemon;
-        this.details.getPokemonImg(this.pokemonToView['img']).subscribe(img => {
-          
-        })
       })
     })
   }
 
   ngOnInit() {
+    this.isLogged = sessionStorage.getItem('authtoken') !== null;
   }
 
 

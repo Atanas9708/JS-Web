@@ -26,6 +26,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   search(e): void {
     this.targetedPokemon.next(e.target.value);
+    console.log(this.targetedPokemon);
   }
 
   ngOnDestroy(): void {

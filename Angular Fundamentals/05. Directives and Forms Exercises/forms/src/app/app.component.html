@@ -1,0 +1,56 @@
+<div class="container">
+  <form [formGroup]='register' (ngSubmit)='submit(register)'>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Email</label>
+        <input formControlName='mail' type="email" class="form-control" id="inputEmail4" placeholder="Email">
+        <div *ngIf="register.get('mail').errors && register.get('mail').touched">Error</div>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="name">Name</label>
+        <input formControlName='name' type="name" class="form-control" id="name" placeholder="Name">
+        <div *ngIf="register.get('name').errors && register.get('name').touched">Error</div>
+      </div>
+      <div formGroupName='auth' class="form-group col-md-6">
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Password</label>
+          <input formControlName='password' type="password" class="form-control" id="inputPassword4" placeholder="Password">
+          <div *ngIf="register.get('auth').get('password').errors && register.get('auth').get('password').touched">Error</div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="repeatPass">Repeat Password</label>
+          <input formControlName='repeatPass' type="password" class="form-control" id="repeatPass" placeholder="Repeat Password">
+          <div *ngIf="register.get('auth').get('repeatPass').errors && register.get('auth').get('repeatPass').touched">Error</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputAddress">Address</label>
+      <input formControlName='address' type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+      <div *ngIf="register.get('address').errors && register.get('address').touched">Error</div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="country">Country</label>
+        <input formControlName='country' type="text" class="form-control" id="country">
+        <div *ngIf="register.get('country').errors && register.get('country').touched">Error</div>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputCity">City</label>
+        <input formControlName='city' type="text" class="form-control" id="inputCity">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputZip">Zip</label>
+        <input formControlName='zip' type="text" class="form-control" id="inputZip">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox"> Check me out
+        </label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </form>
+</div>

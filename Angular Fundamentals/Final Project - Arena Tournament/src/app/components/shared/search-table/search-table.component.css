@@ -1,0 +1,37 @@
+#search-component {
+  position: absolute;
+}
+
+#box {
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width:300px;
+  left: 500px;
+}
+
+#box li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 14px;
+  color: black;
+  display: block;
+  width: 250px;
+}
+
+#box li a:hover:not(.header) {
+  background-color: #eee;
+}
+
+#notFound {
+  display: none;
+}
+
+#post { 
+  display: none;
+}
+

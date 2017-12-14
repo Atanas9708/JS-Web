@@ -1,0 +1,50 @@
+<div class="content">
+  <div *ngIf="!post">
+    <div class="progress">
+      <div class="indeterminate"></div>
+    </div>
+  </div>
+
+  <form class="form center-form" (ngSubmit)="editPost()">
+    <h2>Edit Post</h2>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input [(ngModel)]="title" id="title" name="title" type="text" value="{{post?.title}}" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input [(ngModel)]="image" id="image" name="image" type="text" value="{{post?.image}}" class="form-control" required />
+    </div>
+
+    <label for="class">Class</label>
+    <select [(ngModel)]="class" id="class" name="class" type="text" value="{{post?.class}}" class="form-control" required>
+      <option>Hunter</option>
+      <option>Mage</option>
+      <option>Paladin</option>
+      <option>Priest</option>
+      <option>Warrior</option>
+      <option>Warlock</option>
+      <option>Death Knight</option>
+      <option>Druid</option>
+      <option>Shaman</option>
+      <option>Rogue</option>
+    </select>
+
+
+    <label for="category">Category</label>
+    <select [(ngModel)]="category" id="category" name="category" type="text" value="{{post?.category}}" class="form-control" required>
+      <option>2v2</option>
+      <option>3v3</option>
+      <option>5v5</option>
+    </select>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input [(ngModel)]="description" id="description" name="description" type="text" value="{{post?.description}}" class="form-control"
+        required/>
+    </div>
+    <div class="form-group">
+      <input type="submit" value="Edit" class="form-btn btn" />
+    </div>
+  </form>
+</div>

@@ -1,0 +1,32 @@
+.navbar-material nav{
+    background-color: #000000;
+}
+
+.nav-container{
+    background-color: #000000;
+}
+
+.material-icons {
+    vertical-align: middle !important;
+    
+}
+
+#search-box {
+    position: relative;
+    width: 200px;
+    height: 20px;
+    left: 10px;
+}
+
+input:focus::-webkit-input-placeholder {
+    color:transparent;
+}
+
+::-webkit-input-placeholder {
+    opacity: 0.3 !important;
+}
+
+#search-li {
+    position: absolute;
+    left: 290px;
+}

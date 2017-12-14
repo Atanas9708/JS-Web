@@ -1,0 +1,57 @@
+<div *ngIf="postToView" class="post post-content">
+  <h3>{{postToView?.title}}</h3>
+  <img class="character-img" src="{{postToView?.image}}" alt="img">
+  <h5>Class: {{postToView?.class}}</h5>
+  <p class="info">Author: {{postToView?.author}}</p>
+  <p class="info">Posted on: {{postToView?.postedOn | date:'longDate'}}</p>
+  <img class="likes" src="./../../../../assets/like-button-png-2.png">
+  <span>{{likes.length}}</span>
+  <div *ngIf="isLogged">
+    <br>
+    <br>
+    <button class="likeButton" (click)="likeDislike()">
+        Like
+      </button>
+    <a *ngIf="isPostAuthor" class="btn btn-primary green details-btn" routerLink="/post/edit/{{postToView?._id}}">
+      Edit
+    </a>
+    <a *ngIf="isPostAuthor" class="btn btn-primary red details-btn deletebtn" routerLink="/post/delete/{{postToView?._id}}">
+      Delete
+    </a>
+  </div>
+  <br>
+  <div *ngIf="!isLogged" class="guest">
+    <b>
+      Please login to create comments and like posts.
+    </b>
+  </div>
+  <div id="desc" class="description">
+    <p>{{postToView?.description}}</p>
+  </div>
+</div>
+<div *ngIf="!postToView">
+  <div class="progress">
+    <div class="indeterminate"></div>
+  </div>
+</div>
+
+
+<div *ngIf="isLogged" class="post-comment">
+  <form id="commentForm" (ngSubmit)="createComment()">
+    <label for="icon_prefix2">Comment</label>
+    <textarea [(ngModel)]="comment" id="icon_prefix2" class="materialize-textarea" name="content" type="text"></textarea>
+    <input type="submit" value="Create" id="btnPostComment" />
+  </form>
+</div>
+
+
+<div *ngIf="postToView">
+  <article *ngFor="let comment of comments" class="post post-content">
+    <p>{{comment.text}}</p>
+    <div class="info">
+      submitted {{comment.time}} ago by {{comment.author}}
+      <br>
+      <button *ngIf="comment.isAuthor" (click)="deleteComment(comment._id)">Delete</button>
+    </div>
+  </article>
+</div>

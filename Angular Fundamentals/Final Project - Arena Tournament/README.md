@@ -1,4 +1,9 @@
-# FinalProject
+# Arena Tournament
+
+# The idea of this project is to help players from the famous game World of Warcraft to find their partners and start their arena journey.
+
+Authenticated users can create/edit/delete like posts and create/delete comments, while guest users can only view already created posts and comments.
+The search bar can be used to find posts by their category or class of character.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.3.
 

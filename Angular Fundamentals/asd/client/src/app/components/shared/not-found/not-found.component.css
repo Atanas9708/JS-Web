@@ -1,0 +1,16 @@
+* {
+    line-height: 1.2;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #555;
+    font-size: 2em;
+    font-weight: 400;
+    padding: 20px;
+}
+p {
+    margin: 0 auto;
+    width: 280px;
+}

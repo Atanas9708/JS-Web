@@ -1,0 +1,33 @@
+h1, h2 {
+    text-align: center;
+}
+
+.header-wrapper{
+    margin: 0;
+    background-color: #AAF200;
+    text-align: center;
+    text-transform: uppercase;
+}
+  
+.header-wrapper > h1{
+    margin: 0;
+    padding: 10px;
+    color: white;
+}
+
+
+.collection {
+    position: relative;
+}
+
+.description {
+    position: relative;
+    width: 500px;
+    left: 500px;
+    bottom: 250px;
+    height: 0px;
+}
+
+.likeBtn{
+    max-width: 25px;
+}

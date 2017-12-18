@@ -1,0 +1,44 @@
+<div class="header-wrapper">
+  <h1 class="header center white-text text-lighten-2">Create Post</h1>
+</div>
+<div class="content">
+  <form class="form center-form" (ngSubmit)="createPost()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input [(ngModel)]="title" id="title" name="title" type="text" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input [(ngModel)]="image" id="image" name="image" type="text" class="form-control" required />
+    </div>
+
+    <label for="class">Class</label>
+    <select [(ngModel)]="class" id="class" name="class" class="form-control" required>
+      <option value="Hunter">Hunter</option>
+      <option>Mage</option>
+      <option>Paladin</option>
+      <option>Priest</option>
+      <option>Warrior</option>
+      <option>Warlock</option>
+      <option>Death Knight</option>
+      <option>Druid</option>
+      <option>Shaman</option>
+      <option>Rogue</option>
+    </select>
+
+    <label for="category">Category</label>
+    <select [(ngModel)]="category" id="category" name="category" type="text" class="form-control" required>
+      <option>2v2</option>
+      <option>3v3</option>
+      <option>5v5</option>
+    </select>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input [(ngModel)]="description" id="description" name="description" type="text" class="form-control" required/>
+    </div>
+    <div class="form-group">
+      <input type="submit" value="Create" class="form-btn btn" />
+    </div>
+  </form>
+</div>

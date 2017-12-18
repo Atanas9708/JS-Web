@@ -1,0 +1,15 @@
+<ul id="box" class="posts">
+  <li id="post">
+    <a *ngFor="let post of posts" (click)="redirectToDetails(post?._id)">
+      {{post?.title}}
+    </a>
+  </li>
+</ul>
+
+<ul id="box" class="posts">
+  <li id="notFound">
+    <a (click)="reset()">
+      Nothing found.
+    </a>
+  </li>
+</ul>

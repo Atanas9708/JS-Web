@@ -1,0 +1,54 @@
+<nav class="nav-container">
+    <div class="nav-wrapper container">
+        <a routerLink="/" class="brand-logo left">
+            <img src="https://pbs.twimg.com/profile_images/440436703514206209/ZpQWgVDW_400x400.png" height="63" width="190">
+        </a>
+        <ul *ngIf="isLogged" class="right hide-on-med-and-down">
+            <li id="search-li">
+                <label for="search-box">
+                    <span class="material-icons">search</span>
+                </label>
+                <input placeholder="Search by Class or Category" style="border:none" id="search-box" (keyup)="search($event)" />
+            </li>
+            <li>
+                <a routerLink="/home">Home</a>
+            </li>
+            <li>
+                <a class="active" routerLink="/post/forum">Forum</a>
+            </li>
+            <li>
+                <a class="active" routerLink="/post/create">Create Post</a>
+            </li>
+            <li>
+                <a routerLink="/profile">Profile</a>
+            </li>
+            <li>
+                <a routerLink="/logout" (click)="logout()">Logout</a>
+            </li>
+        </ul>
+
+        <ul class="right hide-on-med-and-down" *ngIf="!isLogged">
+            <li id="search-li">
+                <label for="search-box">
+                    <span class="material-icons">search</span>
+                </label>
+                <input placeholder="Search by Class or Category" style="border:none" id="search-box" (keyup)="search($event)" />
+            </li>
+            <li>
+                <a routerLink="/home">Home</a>
+            </li>
+            <li>
+                <a class="active" routerLink="/post/forum">Forum</a>
+            </li>
+            <li>
+                <a class="active" routerLink="/register">Register</a>
+            </li>
+            <li>
+                <a class="active" routerLink="/login">Login</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<app-search-table [posts]="posts"></app-search-table>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,21 @@
+<h2 style="text-align:center">Forgot Password</h2>
+<br>
+<form class="col s10 offset-s1" (ngSubmit)="forgotPass()">
+  <div class="row">
+    <div class="input-field col s4 offset-s4">
+      <div class="col-sm-4 ">
+        <i class="material-icons">language</i> Email
+        <input type="text" class="form-control" id="email" placeholder="Email" required name="email" [(ngModel)]="email">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4 center">
+      <button type="submit" class="btn btn-primary green">Send</button>
+      <br>
+      <br>
+    </div>
+    <br>
+    <br>
+  </div>
+</form>

@@ -8,17 +8,22 @@ module.exports = new PassportLocalStrategy({
     session: false,
     passReqToCallback: true
 }, (req, username, password, done) => {
-    const user = {
+    const inputUser = {
         username: username.trim(),
         password: password.trim()
     };
 
-    User.findOne({ username: user.username })
+    User.findOne({ username: inputUser.username })
         .then(user => {
+            let error = {};
+            
             if (!user) {
-                const error = new Error('Incorrect username or password');
-                error.username = 'IncorrectCredentialsError';
+                error['message'] = 'Incorrect username!';
+                return done(error);
+            }
 
+            if (!user.authenticate(inputUser.password)) {
+                error['message'] = 'Incorrect password';
                 return done(error);
             }
 

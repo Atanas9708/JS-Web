@@ -6,6 +6,8 @@ const userSchema = new mongoose.Schema({
     email: { type: mongoose.Schema.Types.String, required: true, unique: true },
     hashedPass: { type: mongoose.Schema.Types.String, required: true },
     repeatPass: { type: mongoose.Schema.Types.String, required: true },
+    resetPasswordToken : { type: mongoose.Schema.Types.String },
+    resetPasswordExpires  : { type: mongoose.Schema.Types.Date },
     salt: { type: mongoose.Schema.Types.String, required: true },
     isAdmin: { type: mongoose.Schema.Types.Boolean, default: false }
 });

@@ -1,0 +1,29 @@
+<h2 style="text-align:center">Reset Password</h2>
+<br>
+<form class="col s10 offset-s1" (ngSubmit)="resetPassword()">
+  <div class="row">
+    <div class="input-field col s4 offset-s4">
+      <div class="col-sm-4">
+        <i class="material-icons">lock</i> New Password
+        <input type="password" class="form-control" id="pass" required name="password" [(ngModel)]="password">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s4 offset-s4">
+      <div class="col-sm-4">
+        <i class="material-icons">lock</i> Confirm Password
+        <input type="password" class="form-control" id="repeatPass" required name="password" [(ngModel)]="repeatPass">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4 center">
+      <button type="submit" class="btn btn-primary green">Submit</button>
+      <br>
+      <br>
+    </div>
+    <br>
+    <br>
+  </div>
+</form>

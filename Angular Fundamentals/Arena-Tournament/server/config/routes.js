@@ -4,6 +4,8 @@ module.exports = app => {
     app.post('/register', controllers.user.registerPost);
     app.post('/login', controllers.user.loginPost);
     app.get('/getUser/:id', controllers.user.getCurrentUser);
+    app.post('/forgot', controllers.user.forgot);
+    app.post('/reset', controllers.user.reset);
 
     app.get('/allPosts', controllers.post.getAllPosts);
     app.get('/user/:username', controllers.post.getUserPosts);

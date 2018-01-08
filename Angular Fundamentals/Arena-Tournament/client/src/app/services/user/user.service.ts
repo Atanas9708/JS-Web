@@ -16,4 +16,18 @@ export class UserService {
                 .set('Content-Type', 'application/json')
         })
     }
+
+    forgotPass(payload): Observable<any> {
+        return this.http.post(url + 'forgot', payload, {
+            headers: new HttpHeaders()
+                .set('Content-Type', 'application/json')
+        })
+    }
+
+    resetPass(payload): Observable<any> {
+        return this.http.post(url + 'reset', payload, {
+            headers: new HttpHeaders()
+                .set('Content-Type', 'application/json')
+        });
+    }
 }

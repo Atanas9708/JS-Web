@@ -33,7 +33,7 @@ class DiscoverPage extends Component {
                         <div id="userlist">
                             {this.state.users.filter(u => u.username !== username).map(user => {
                                 user.followers = this.state.users.filter(u => u.subscriptions.includes(user.username)).length;
-                                
+
                                 return <User
                                     key={user._id}
                                     user={user.username}

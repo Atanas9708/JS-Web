@@ -1,0 +1,43 @@
+<div class="content">
+  <form class="form center-form" (ngSubmit)="create()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" name="name" required placeholder="Name" id="name" [(ngModel)]="name">
+    </div>
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input type="number" name="age" required placeholder="Age" id="age" [(ngModel)]="age">
+    </div>
+    <div class="form-group">
+      <label for="color">Color</label>
+      <input type="text" name="color" required placeholder="Color" id="color" [(ngModel)]="color">
+    </div>
+    <label for="type">Type</label>
+    <select name="type" id="type" required [(ngModel)]="type">
+      <option value="Cat">Cat</option>
+      <option>Dog</option>
+      <option>Bunny</option>
+      <option>Exotic</option>
+      <option>Other</option>
+    </select>
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" name="price" required placeholder="Price" id="price" [(ngModel)]="price">
+    </div>
+
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input type="text" name="image" required placeholder="Image" id="image" [(ngModel)]="image">
+    </div>
+
+    <div class="form-group">
+      <label for="breed">Breed</label>
+      <input type="text" name="breed" placeholder="Breed" id="breed" [(ngModel)]="breed">
+    </div>
+
+    <div class="form-group">
+      <input type="submit" value="Submit" class="form-btn btn" />
+    </div>
+  </form>
+</div>

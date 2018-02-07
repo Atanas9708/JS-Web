@@ -1,0 +1,11 @@
+.prevPage, .nextPage {
+  text-align: center;
+}
+
+img {
+  width: 300px;
+}
+
+li {
+  width: 400px
+}

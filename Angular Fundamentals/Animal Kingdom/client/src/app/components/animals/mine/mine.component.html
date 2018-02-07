@@ -1,0 +1,15 @@
+<ul>
+  <li *ngFor="let animal of animals">
+    <h3>{{animal?.name}}</h3>
+    <a routerLink="/details/{{animal?.id}}">
+      <img src="{{animal?.image}}" alt="animalImg">
+    </a>
+    <button (click)="delete(animal?.id)" class="btn">
+      Delete
+    </button>
+  </li>
+</ul>
+
+<div *ngIf="notFound">
+  <p>You have not posted any animals yet.</p>
+</div>

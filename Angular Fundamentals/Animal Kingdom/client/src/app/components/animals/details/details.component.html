@@ -1,0 +1,58 @@
+<div class="animal" *ngIf="animal">
+  <h2>Name: {{animal?.name}}</h2>
+  <img src="{{animal?.image}}" alt="animalImg">
+  <h3>Type: {{animal?.type}}</h3>
+  <h3 *ngIf="animal.breed">Breed: {{animal?.breed}}</h3>
+  <h4>Age: {{animal?.age}}</h4>
+  <p>Color: {{animal?.color}}</p>
+  <p>Price: {{animal?.price}}</p>
+</div>
+
+<section class="reactions">
+  <a (click)="react('like')">
+    <img src="./../../../../assets/gifs/Like-500px.gif" alt="like">
+  </a>
+  <a (click)="react('love')">
+    <img src="./../../../../assets/gifs/Love-500px.gif" alt="like">
+  </a>
+  <a (click)="react('haha')">
+    <img src="./../../../../assets/gifs/Haha-500px.gif" alt="like">
+  </a>
+  <a (click)="react('wow')">
+    <img src="./../../../../assets/gifs/Wow-500px.gif" alt="like">
+  </a>
+  <a (click)="react('sad')">
+    <img src="./../../../../assets/gifs/Sad-500px.gif" alt="like">
+  </a>
+  <a (click)="react('angry')">
+    <img src="./../../../../assets/gifs/Angry-500px.gif" alt="like">
+  </a>
+
+  <ul>
+    <li>{{reactions?.like}}</li>
+    <li>{{reactions?.love}}</li>
+    <li>{{reactions?.haha}}</li>
+    <li>{{reactions?.wow}}</li>
+    <li>{{reactions?.sad}}</li>
+    <li>{{reactions?.angry}}</li>
+  </ul>
+</section>
+
+<section class="create-comment">
+  <form *ngIf="isLogged" (ngSubmit)="createComment()">
+    <textarea name="comment" id="comment" [(ngModel)]="comment"></textarea>
+    <input type="submit" value="Submit">
+  </form>
+
+  <section class="comments">
+    <ul *ngIf="comments">
+      <li *ngFor="let comment of comments" class="comment">
+        <p>
+          <span class="author">Author: {{comment?.user}}</span>
+          {{comment?.message}}
+        </p>
+        <p>Posted on: {{comment?.createdOn | date: 'short'}}</p>  
+      </li>
+    </ul>
+  </section>
+</section>

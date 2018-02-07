@@ -1,0 +1,22 @@
+<form (ngSubmit)="search()">
+  <label for="search">Search by Name of Type of Animal..</label>
+  <input type="text" id="search" name="searchTerm" [(ngModel)]="searchTerm">
+  <input type="submit" value="Submit">
+</form>
+
+<ul>
+  <li *ngFor="let animal of animals">
+    <h3>{{animal?.name}}</h3>
+    <a routerLink="/details/{{animal?.id}}">
+      <img src="{{animal?.image}}" alt="animalImg">
+    </a>
+  </li>
+</ul>
+
+<div class="prevPage" *ngIf="hasPrevPage">
+  <a (click)="changePage('prev')">&laquo;</a>
+</div>
+
+<div class="nextPage" *ngIf="hasNextPage">
+  <a (click)="changePage('next')">&raquo;</a>
+</div>

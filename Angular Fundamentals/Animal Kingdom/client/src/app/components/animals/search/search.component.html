@@ -1,0 +1,7 @@
+<ul *ngIf="animals">
+  <li *ngFor="let animal of animals">
+    <a routerLink="/details/{{ animal?.id }}">{{ animal?.name }}</a>
+  </li>
+</ul>
+
+<p *ngIf="notFound">Nothing found.</p>

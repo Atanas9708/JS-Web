@@ -17,7 +17,6 @@ module.exports = config => {
         }
 
         console.log('Connected!');
-
     });
 
 

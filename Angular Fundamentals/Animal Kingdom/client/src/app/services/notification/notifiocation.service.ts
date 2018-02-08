@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
-declare const Materialize: any;
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class NotificationService {
   
+  constructor(public toastr: ToastrService) { }
+
   successAlert(text: string, cb?) {
-    Materialize.toast(text, 2000, 'green lighten-1', cb);
+    this.toastr.success(text);
   }
 
   errorAlert(text: string, cb?) {
-    Materialize.toast(text, 3000, 'red lighten-1', cb);
+    this.toastr.error(text);
   }
 }

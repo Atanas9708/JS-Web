@@ -4,8 +4,19 @@
 
 img {
   width: 300px;
+  padding-bottom: 35px;
+}
+
+ul {
+  padding: 0;
+  margin-left: 10px;
 }
 
 li {
-  width: 400px
+  width: 400px;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #DDDDDD;
+  border-radius: 10px;
+  margin: 20px;
 }

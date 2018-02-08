@@ -1,18 +1,23 @@
 <nav>
 
   <ul *ngIf="isLogged">
-    <li><p>Stats - <span>animals: {{ animals }} users: {{ users }}</span></p></li>
-    <li><a routerLink="/mine">Profile</a></li>
-    <li><a routerLink="/list">List Animals</a></li>
-    <li><a routerLink="/create">Create</a></li>
-    <li><a routerLink="/logout" (click)="logout()">Logout</a></li>
+    <li class="stats">Stats - <span>animals: {{ animals }} users: {{ users }}</span></li>
+    <div class="menu">
+      <li><p>Welcome, {{ username }}</p></li>
+      <li><a routerLink="/list">List Animals</a></li>
+      <li><a routerLink="/mine">Profile</a></li>
+      <li><a routerLink="/create">Create</a></li>
+      <li><a routerLink="/logout" (click)="logout()">Logout</a></li>
+    </div>
   </ul>
 
   <ul *ngIf="!isLogged">
-    <li><p>Stats - <span>animals: {{ animals }} users: {{ users }}</span></p></li>
-    <li><a routerLink="/list">List Animals</a></li>
-    <li><a routerLink="/register">Register</a></li>
-    <li><a routerLink="/login">Login</a></li>
+    <li class="stats">Stats - <span>animals: {{ animals }} users: {{ users }}</span></li>
+    <div class="menu">
+      <li><a routerLink="/list">List Animals</a></li>
+      <li><a routerLink="/register">Register</a></li>
+      <li><a routerLink="/login">Login</a></li>
+    </div>
   </ul>
 
 </nav>

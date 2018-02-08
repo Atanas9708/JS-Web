@@ -28,7 +28,7 @@
     <img src="./../../../../assets/gifs/Angry-500px.gif" alt="like">
   </a>
 
-  <ul>
+  <ul class="count">
     <li>{{reactions?.like}}</li>
     <li>{{reactions?.love}}</li>
     <li>{{reactions?.haha}}</li>
@@ -43,16 +43,14 @@
     <textarea name="comment" id="comment" [(ngModel)]="comment"></textarea>
     <input type="submit" value="Submit">
   </form>
+</section>
 
-  <section class="comments">
-    <ul *ngIf="comments">
-      <li *ngFor="let comment of comments" class="comment">
-        <p>
-          <span class="author">Author: {{comment?.user}}</span>
-          {{comment?.message}}
-        </p>
-        <p>Posted on: {{comment?.createdOn | date: 'short'}}</p>  
-      </li>
-    </ul>
-  </section>
+<section class="comments">
+  <ul *ngIf="comments">
+    <li *ngFor="let comment of comments" class="comment">
+      <p class="author">{{comment?.user}}</p>
+      <p class="content">{{comment?.message}}</p>
+      <p class="date">{{comment?.createdOn | date: 'short'}}</p>
+    </li>
+  </ul>
 </section>

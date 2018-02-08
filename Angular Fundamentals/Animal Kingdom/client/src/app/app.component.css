@@ -1,3 +1,8 @@
+nav {
+  margin-bottom: 50px;
+  padding: 0;
+}
+
 ul li {
   display: inline-block;
   padding: 10px;
@@ -7,4 +12,18 @@ li a {
   text-decoration: none;
   font-size: 20px;
   font-weight: bold;
+}
+
+.menu {
+  width: 600px;
+  text-align: right;
+  margin-right: 60px;
+  float: right;
+}
+
+.stats {
+  border: 1px solid #DDDDDD;
+  border-radius: 15px;
+  padding: 10px;
+  width: 185px;
 }

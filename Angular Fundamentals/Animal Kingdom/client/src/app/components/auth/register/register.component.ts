@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../services/auth/auth.service';
-import { NotificationService } from '../../../services/notification/notifiocation.service';
+import { AuthService } from '../../../core/services/auth/auth.service';
+import { NotificationService } from '../../../core/services/notification/notifiocation.service';
+import { RegisterInputModel } from '../../../core/models/input-models/register.input.model';
+import { Store } from '@ngrx/store';
+import { RootState } from '../../../core/store/state/root.state';
+import { AuthActions } from '../../../core/store/actions/auth.action';
 
 @Component({
   templateUrl: './register.component.html',
@@ -13,27 +17,34 @@ export class RegisterComponent {
   name: string;
   password: string;
 
-  constructor(private router: Router, private authService: AuthService, private notify: NotificationService) { }
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private notify: NotificationService,
+    private store$: Store<RootState>) { }
 
   register(): void {
-    const payload = {
-      email: this.email,
-      name: this.name,
-      password: this.password
-    };
+    // const payload = {
+    //   email: this.email,
+    //   name: this.name,
+    //   password: this.password
+    // };
 
-    const validatedForm: object = this.validateSignupForm(payload);
+    const payload = new RegisterInputModel(this.email, this.name, this.password);
+    this.store$.dispatch(new AuthActions.RegisterAction(payload));
 
-    if (validatedForm['success']) {
-      this.authService.registerUser(payload).subscribe(res => {
-        if (res['success']) {
-          this.notify.successAlert('Successful registration!');
-          this.router.navigate(['/login']);
-        } else {
-          this.notify.errorAlert(res['message']);
-        }
-      })
-    }
+    // const validatedForm: object = this.validateSignupForm(payload);
+
+    // if (validatedForm['success']) {
+    //   this.authService.registerUser(payload).subscribe(res => {
+    //     if (res['success']) {
+    //       this.notify.successAlert('Successful registration!');
+    //       this.router.navigate(['/login']);
+    //     } else {
+    //       this.notify.errorAlert(res['message']);
+    //     }
+    //   })
+    // }
   }
 
 

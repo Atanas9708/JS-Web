@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AnimalService } from '../../../services/animals/animals.service';
+import { AnimalService } from '../../../core/services/animals/animals.service';
 
 @Component({
   templateUrl: './list.component.html',

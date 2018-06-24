@@ -22,5 +22,9 @@ export class AuthService {
         .set('Content-Type', 'application/json')
     });
   }
+
+  logout(): void {
+    sessionStorage.clear();
+  }
   
 }

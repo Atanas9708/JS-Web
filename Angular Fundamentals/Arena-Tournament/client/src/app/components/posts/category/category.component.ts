@@ -39,7 +39,9 @@ export class CategoryComponent implements OnInit {
     this.postService.getPosts().subscribe(data => {
       this.loading = false;
       if (currentCategory !== 'all') {
-        this.posts = data['posts'].filter(p => p['category'] === currentCategory);
+        this.posts = data['posts']
+          .filter(p => p['category'] === currentCategory)
+          .sort((a, b) => b['likes'].length - a['likes'].length);
       } else {
         this.posts = data['posts'];
       }
@@ -57,6 +59,23 @@ export class CategoryComponent implements OnInit {
   pageChanged(page): void {
     this.page = page;
     this.router.navigate([`/post/category/${this.category}`], { queryParams: { page: this.page } })
+  }
+
+  onChange(e): void {
+    const val = e.target.value;
+
+    switch (val) {
+      case 'Likes':
+        this.posts = this.posts.sort((a, b) => b['likes'].length - a['likes'].length);
+        break;
+      case 'Latest':
+        this.posts = this.posts.sort((a, b) => +new Date(b['createdOn']) - +new Date(a['createdOn']));
+        break;
+      case 'Oldest':
+      this.posts = this.posts.sort((a, b) => +new Date(a['createdOn']) - +new Date(b['createdOn']));        
+      default:
+        break;
+    }
   }
 
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AnimalService } from '../../../services/animals/animals.service';
-import { NotificationService } from '../../../services/notification/notifiocation.service';
+import { AnimalService } from '../../../core/services/animals/animals.service';
+import { NotificationService } from '../../../core/services/notification/notifiocation.service';
 
 @Component({
   templateUrl: './create.component.html',

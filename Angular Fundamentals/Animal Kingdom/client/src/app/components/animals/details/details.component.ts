@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AnimalService } from '../../../services/animals/animals.service';
 import { ActivatedRoute } from '@angular/router';
-import { NotificationService } from '../../../services/notification/notifiocation.service';
+import { AnimalService } from '../../../core/services/animals/animals.service';
+import { NotificationService } from '../../../core/services/notification/notifiocation.service';
 
 @Component({
   selector: 'app-details',

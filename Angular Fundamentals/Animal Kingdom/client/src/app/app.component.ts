@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { StatsService } from './services/statistics/statistics.service';
-import { NotificationService } from './services/notification/notifiocation.service';
+import { StatsService } from './core/services/statistics/statistics.service';
+import { NotificationService } from './core/services/notification/notifiocation.service';
+import { Store } from '@ngrx/store';
+import { RootState } from './core/store/state/root.state';
+import { selectIsLogged } from './core/store/reducers/index';
+import { AuthActions } from './core/store/actions/auth.action';
+
 
 @Component({
   selector: 'app-root',
@@ -17,12 +22,19 @@ export class AppComponent implements OnInit {
 
   constructor(private router: Router,
     private statsService: StatsService,
-    private notify: NotificationService) {
-    this.router.events.subscribe(e => {
-      this.isLogged = sessionStorage.getItem('token') !== null;
-      this.username = sessionStorage.getItem('username');
-      this.animalAndUserStats();
-    })
+    private notify: NotificationService,
+    private store$: Store<RootState>) {
+    this.store$.select(selectIsLogged)
+      .subscribe(isLogged => {
+        this.isLogged = isLogged;
+      });
+
+
+    // this.router.events.subscribe(e => {
+    //   this.isLogged = sessionStorage.getItem('token') !== null;
+    //   this.username = sessionStorage.getItem('name');
+    //   this.animalAndUserStats();
+    // })
   };
 
   ngOnInit(): void {
@@ -38,9 +50,12 @@ export class AppComponent implements OnInit {
   }
 
   logout(): void {
-    sessionStorage.clear();
-    this.notify.successAlert('Successful logout!');
-    this.router.navigate(['/login']);
+    // sessionStorage.clear();
+    // this.notify.successAlert('Successful logout!');
+    // this.router.navigate(['/login']);
+
+    this.store$.dispatch(new AuthActions.LogoutAction());
+
   }
 
 }

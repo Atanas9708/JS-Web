@@ -7,7 +7,7 @@ import { ListComponent } from './components/animals/list/list.component';
 import { SearchComponent } from './components/animals/search/search.component';
 import { DetailsComponent } from './components/animals/details/details.component';
 import { MineComponent } from './components/animals/mine/mine.component';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard } from './core/guards/auth.guard';
 
 
 const routes: Routes = [

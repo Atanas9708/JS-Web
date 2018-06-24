@@ -2,12 +2,12 @@ h1, h2 {
     text-align: center;
 }
 
-
 .header-wrapper{
     margin: 0;
     background-color: #AAF200;
     text-align: center;
     text-transform: uppercase;
+    /* margin-bottom: 70px; */
 }
   
 .header-wrapper > h1{
@@ -34,4 +34,14 @@ h1, h2 {
 
 .my-pagination /deep/ .ngx-pagination .current {
     background: red;
+}
+
+
+select {
+    display: block;
+}
+
+.filter {
+    margin-left: 74px;
+    width: 300px;
 }

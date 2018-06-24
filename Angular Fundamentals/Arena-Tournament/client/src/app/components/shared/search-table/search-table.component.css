@@ -25,6 +25,7 @@
 
 #box li a:hover:not(.header) {
   background-color: #eee;
+  cursor: pointer;
 }
 
 #notFound {
